@@ -113,11 +113,6 @@ export default function JojoReview({ lang }: { lang: 'zh' | 'en' }) {
               </button>
             ))}
           </div>
-          <p className='jojo-review-note'>
-            {zh
-              ? '审阅决定：Jojo 模式下首访推广大弹窗停用，保留首页静态推广卡；左下 popout 等开场结束后再出现。'
-              : 'Review decision: in Jojo mode the first-visit promo modal is off; the static promo card stays, and the popout waits for the intro.'}
-          </p>
         </div>
       )}
     </div>

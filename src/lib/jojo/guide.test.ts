@@ -9,7 +9,7 @@ describe('guide stops', () => {
       'zh'
     )
     expect(s.map((x) => x.id)).toEqual(['blog', 'notes', 'talks', 'experience'])
-    // the English home has no Product or Talks, and nothing is said about them
+    // the English home has no Talks, and nothing is said about them
     expect(guideStops(STOP_ORDER, 'en').map((x) => x.id)).toEqual(['blog', 'notes', 'experience'])
   })
 
@@ -27,11 +27,6 @@ describe('guide stops', () => {
   })
 
   it('introduces every product by name, each with a link to it', () => {
-    const product = guideStops(['product'], 'zh')[0]
-    expect(product.title).toBe('夹夹')
-    expect(product.bubbles[0].text).toContain('夹夹')
-    expect(product.bubbles.some((b) => b.link?.href === 'https://jiajia.fun')).toBe(true)
-
     for (const lang of ['zh', 'en'] as const) {
       const exp = guideStops(['experience'], lang)[0].bubbles
       const names = ['Playyy.ai', 'atypica', 'AIXCut', 'fAIshion.ai']

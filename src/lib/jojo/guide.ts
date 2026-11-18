@@ -8,10 +8,10 @@ import type { EmotionId, StatusId } from '@jojo-web/runtime'
  * post to start with for your situation, what Notes and Lab are, what each
  * product actually is — taken from Joye's posts and notes, the Lab entries and
  * the products' own sites. Only stops that exist on the page are visited (the
- * English home has no Product or Talks).
+ * English home has no Talks).
  */
 
-export type StopId = 'product' | 'blog' | 'notes' | 'talks' | 'experience'
+export type StopId = 'blog' | 'notes' | 'talks' | 'experience'
 
 export interface Bubble {
   text: string
@@ -30,10 +30,9 @@ export interface Stop {
   mood: EmotionId
 }
 
-export const STOP_ORDER: readonly StopId[] = ['product', 'blog', 'notes', 'talks', 'experience']
+export const STOP_ORDER: readonly StopId[] = ['blog', 'notes', 'talks', 'experience']
 
 const MOODS: Record<StopId, EmotionId> = {
-  product: 'smug',
   blog: 'think',
   notes: 'curious',
   talks: 'happy',
@@ -47,23 +46,6 @@ const site = (href: string, label: string) => ({ href, label, external: true })
 type Copy = Omit<Stop, 'id' | 'mood'>
 const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
   zh: {
-    product: {
-      title: '夹夹',
-      bubbles: [
-        {
-          text: '先看 Joye 新上线的产品「夹夹」（jiajia.fun）—— 做 Agent 卡住的时候，可以先去那里搜搜看有没有人踩过同样的坑。'
-        },
-        {
-          text: '里面的内容来自做 Agent 的工程师在群里的真实讨论：上下文管理、记忆机制、评测、工具选型和求职面试，夹夹都整理成了结构化答案。',
-          mood: 'laugh'
-        },
-        {
-          text: '不仅能直接搜问题、按专题文件夹从头读，还有群友不同观点的正反对比，而且每一条答案都能直接回到群里的原始讨论。',
-          mood: 'happy',
-          link: site('https://jiajia.fun', '去问问夹夹')
-        }
-      ]
-    },
     blog: {
       title: 'Blog',
       bubbles: [

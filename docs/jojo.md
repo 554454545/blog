@@ -36,7 +36,7 @@ family). This site shows it in three ways that are designed to work together.
   your situation (with links), what Notes are and what Lab is (Lab has no
   home section, so Notes introduces it), what each product actually is (from
   the products' own sites, each with a link), the live streams that replaced
-  the weekly talks. Stops: 夹夹, Blog, Notes (+ Lab), 直播 (Talks),
+  the weekly talks. Stops: Blog, Notes (+ Lab), 直播 (Talks),
   Experience — Open Source, Education and Skills are skipped, and Blog leaves
   out the OpenHarness post and the early Transformer series. The closing
   bubble links to
@@ -129,7 +129,7 @@ gitignored `vendor/jojo-web/`, first match wins:
 - **Local, by hand:** `bun run jojo:pull` downloads the pinned asset with your
   logged-in GitHub CLI, verifies sha256 and unpacks it (never used by builds).
 - **None of the above → Jojo off:** the site builds without Jojo (ASCII
-  mascot, promo modal, no intro — the old particle intro was removed on
+  mascot, no intro — the old particle intro was removed on
   2026-10-03).
 
 `PUBLIC_JOJO=0` also switches Jojo off with the package present — that is the
@@ -174,10 +174,6 @@ freezes the intro at a frame for inspection.
 
 ## Decisions to review
 
-- **Promo:** in Jojo mode the first-visit promo modal is not rendered (it would
-  stack a second mask right after the intro); the in-page promo card stays and
-  the bottom-left popout waits for the intro to finish. Production promo
-  behaviour is unchanged while Jojo is off.
 - **Film hosting:** About links the published film on Cloudflare's `r2.dev`
   host (rate-limited dev hostname). Move it to a production host before launch.
 - **Copy:** the few Jojo lines (About, 404, end card, dock) are placeholders in

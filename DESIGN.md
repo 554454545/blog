@@ -392,8 +392,7 @@ a transparent ≥ 44 px hit area with a `--ring` focus-visible outline.
   real chat lifecycle reported by a `ChatAdapter`; until chat exists the dock
   shows plain idle and says so in words.
 - **Placement.** The dock owns the bottom-right corner column; back-to-top
-  stacks above it while the dock is shown. Nothing Jojo is fixed on the left
-  (the promo popout lives there).
+  stacks above it while the dock is shown. Nothing Jojo is fixed on the left.
 - Reduced motion: every Jojo surface has a `prefers-reduced-motion: reduce`
   override; the engine itself goes static.
 
