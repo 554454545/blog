@@ -17,12 +17,10 @@ const menuKeyMap: Record<string, Parameters<typeof t>[0]> = {
   '/notes': 'nav.notes',
   '/curated': 'nav.curated',
   '/projects': 'nav.projects',
-  '/links': 'nav.links',
-  '/about': 'nav.about',
-  '/contact': 'nav.contact'
+  '/about': 'nav.about'
 }
 
-// 英文站只展示有英文镜像的菜单项，避免生成 /en/talks 这类 404 链接
+// 英文站只展示有英文镜像的菜单项，避免生成没有英文版的 404 链接
 const menu = (config.header?.menu ?? [])
   .filter((item) => lang !== 'en' || hasEnAlternate(item.link))
   .map((item) => {

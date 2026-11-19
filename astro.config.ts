@@ -56,9 +56,9 @@ const exposeSingleSitemap = (): AstroIntegration => ({
           ...sectionMetadata(path),
           noindex: false,
           alternates: [
-            { lang: 'zh-CN', url: 'https://www.joyehuang.me/about' },
-            { lang: 'en', url: 'https://www.joyehuang.me/en/about' },
-            { lang: 'x-default', url: 'https://www.joyehuang.me/about' }
+            { lang: 'zh-CN', url: 'https://blog.bunnyjudy.dev/about' },
+            { lang: 'en', url: 'https://blog.bunnyjudy.dev/en/about' },
+            { lang: 'x-default', url: 'https://blog.bunnyjudy.dev/about' }
           ],
           sources: [
             `src/pages${path}/index.astro`,
@@ -106,7 +106,7 @@ const jojoAlias = (entry: 'runtime' | 'static') =>
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://www.joyehuang.me',
+  site: 'https://blog.bunnyjudy.dev',
   // base: '/docs',
   trailingSlash: 'never',
 
@@ -198,6 +198,22 @@ export default defineConfig({
       __JOJO_REVIEW__: JSON.stringify(JOJO_REVIEW)
     },
     plugins: [
+      // astro-pure's `advanced` barrel (Quote, QRCode, MediumZoom, GithubCard, and
+      // the theme Copyright through it) also exports the theme's Waline Comment, whose
+      // stylesheet import would ship on every page. This site has no comments, so
+      // resolve that one export to an empty stub.
+      {
+        name: 'no-theme-comment',
+        enforce: 'pre',
+        resolveId(id, importer) {
+          if (
+            id === './Comment.astro' &&
+            importer &&
+            /astro-pure[\\/]components[\\/]advanced[\\/]index\.ts$/.test(importer)
+          )
+            return fileURLToPath(new URL('./src/components/NoComment.astro', import.meta.url))
+        }
+      },
       //   visualizer({
       //     emitFile: true,
       //     filename: 'stats.html'
@@ -225,9 +241,7 @@ export default defineConfig({
         'linebreak',
         'base64-js',
         'unicode-trie',
-        'unicode-properties',
-        '@waline/client',
-        'recaptcha-v3'
+        'unicode-properties'
       ],
       esbuildOptions: {
         plugins: [

@@ -39,20 +39,16 @@ const notes = (await getCollection('notes'))
     kind: note.data.type
   }))
 
-const talkCount = (await getCollection('talks')).filter(
-  (talk) => !talk.data.draft && talk.data.status === 'published'
-).length
-
 const repos = await getPortfolioRepos('zh')
 ---
 
 <PageLayout
   meta={{
-    title: 'Joye — AI Agent & Full-Stack Developer · V3',
-    description: '墨尔本大学在读，AI Agent & 全栈开发者：开源、实习、100+ 场面试复盘，全部公开。',
+    title: 'Judy — AI Agent & Full-Stack Developer · V3',
+    description: 'AI Agent & 全栈开发者：开源、实习、100+ 场面试复盘，全部公开。',
     noindex: true
   }}
   chrome={false}
 >
-  <V3Home locale='zh' {posts} {notes} {repos} postCount={allPosts.length} {talkCount} />
+  <V3Home locale='zh' {posts} {notes} {repos} postCount={allPosts.length} />
 </PageLayout>

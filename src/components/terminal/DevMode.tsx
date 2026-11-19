@@ -81,7 +81,7 @@ function Prompt({ user, host, cwd }: { user: string; host: string; cwd: string }
   )
 }
 
-export default function DevMode({ fs, user = 'joye', host = ROOT_LABEL, onExit }: Props) {
+export default function DevMode({ fs, user = 'judy', host = ROOT_LABEL, onExit }: Props) {
   const [bootLines, setBootLines] = useState<BootLine[]>([])
   const [bootDone, setBootDone] = useState(false)
   const [entries, setEntries] = useState<RenderEntry[]>([])
@@ -447,7 +447,7 @@ export default function DevMode({ fs, user = 'joye', host = ROOT_LABEL, onExit }
               <span className='key'>uptime</span>
               <span className='val'>since Apr 2024</span>
               <span className='key'>locale</span>
-              <span className='val'>Melbourne, AU</span>
+              <span className='val'>Nanjing</span>
             </div>
           </div>
         )}

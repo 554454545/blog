@@ -64,14 +64,6 @@
   .name{font-weight:800;font-size:34px;letter-spacing:-.02em;margin:0}
   .meta{color:var(--muted);font-family:var(--mono);font-size:13px;display:flex;gap:14px}
   .ital{color:var(--cyan);font-style:italic;font-size:15px}
-  .pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;
-    border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);font-size:14px;
-    color:var(--fg);text-decoration:none;transition:.2s}
-  .pill:hover{border-color:rgba(125,211,252,.4);box-shadow:0 0 0 4px rgba(125,211,252,.08)}
-  .ping{position:relative;width:9px;height:9px}
-  .ping i{position:absolute;inset:0;border-radius:50%;background:var(--ok)}
-  .ping i:first-child{animation:ping 1.4s cubic-bezier(0,0,.2,1) infinite}
-  @keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
   .card>*{opacity:0;transform:translateY(14px)}
   .hero.show .card>*{animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
   .hero.show .card>*:nth-child(1){animation-delay:.05s}
@@ -94,15 +86,14 @@
   <div class="bar" id="bar"></div>
 
   <div class="seq" id="seq"></div>
-  <div class="kick" id="kick">Joye · personal site</div>
+  <div class="kick" id="kick">Judy · personal site</div>
 
   <div class="hero" id="hero">
     <div class="card">
-      <img class="avatar" src="../../src/assets/avatar.png" alt="Joye" onerror="this.removeAttribute('src')" />
-      <h1 class="name">Joye</h1>
-      <div class="meta"><span>📍 Melbourne, Australia</span><span>· GitHub</span></div>
+      <img class="avatar" src="../../src/assets/avatar.png" alt="Judy" onerror="this.removeAttribute('src')" />
+      <h1 class="name">Judy</h1>
+      <div class="meta"><span>📍 Nanjing</span><span>· GitHub</span></div>
       <div class="ital">“Stay hungry, stay foolish.”</div>
-      <a class="pill" href="javascript:void 0"><span class="ping"><i></i><i></i></span> Connect Me!</a>
     </div>
   </div>
 
@@ -123,7 +114,7 @@ const WORDS = [
   [{t:'FRONT'},{t:'END',c:'accent'}],
   [{t:'DESIGN'}],
   [{t:'×',c:'thin'},{t:' AI',c:'accent'}],
-  [{t:'JOYE'}],
+  [{t:'JUDY'}],
 ];
 
 function makeWord(parts){

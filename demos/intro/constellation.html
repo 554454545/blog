@@ -81,14 +81,6 @@
   .name{font-weight:800;font-size:34px;letter-spacing:-.02em;margin:0}
   .meta{color:var(--muted);font-family:var(--mono);font-size:13px;display:flex;gap:14px}
   .ital{color:var(--cyan);font-style:italic;font-size:15px}
-  .pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;
-    border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);font-size:14px;
-    color:var(--fg);text-decoration:none;transition:.2s}
-  .pill:hover{border-color:rgba(125,211,252,.4);box-shadow:0 0 0 4px rgba(125,211,252,.08)}
-  .ping{position:relative;width:9px;height:9px}
-  .ping i{position:absolute;inset:0;border-radius:50%;background:var(--ok)}
-  .ping i:first-child{animation:ping 1.4s cubic-bezier(0,0,.2,1) infinite}
-  @keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
   .card>*{opacity:0;transform:translateY(14px)}
   .hero.show .card>*{animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
   .hero.show .card>*:nth-child(1){animation-delay:.05s}
@@ -109,21 +101,20 @@
   <canvas id="c"></canvas>
   <div class="context" id="context"></div>
   <div class="tag" id="tag">agent runtime · tool loop · content merge</div>
-  <button class="enter" id="enter">进入 ~/joye →</button>
+  <button class="enter" id="enter">进入 ~/judy →</button>
   <div class="trace" id="trace">agent loop complete · context merged</div>
 
   <div class="hero" id="hero">
     <div class="card">
-      <img class="avatar" src="../../src/assets/avatar.png" alt="Joye"
+      <img class="avatar" src="../../src/assets/avatar.png" alt="Judy"
            onerror="this.removeAttribute('src')" />
-      <h1 class="name">Joye</h1>
-      <div class="meta"><span>📍 Melbourne, Australia</span><span>· GitHub</span></div>
+      <h1 class="name">Judy</h1>
+      <div class="meta"><span>📍 Nanjing</span><span>· GitHub</span></div>
       <div class="ital">“Stay hungry, stay foolish.”</div>
-      <a class="pill" href="javascript:void 0"><span class="ping"><i></i><i></i></span> Connect Me!</a>
     </div>
   </div>
 
-  <div class="hint">这是入场动画演示 · 成形后可互动，点击进入 ~/joye</div>
+  <div class="hint">这是入场动画演示 · 成形后可互动，点击进入 ~/judy</div>
   <div class="ctl"><button id="skip">跳过 →</button><button id="replay">重播 ↻</button></div>
 
 <script>
@@ -143,11 +134,11 @@ const TOOLS=[
   { call:'mcp.github()', shards:['OpenHarness','ship log'], pos:[78,29] },
   { call:'memory.search()', shards:['design taste','frontend'], pos:[22,56] },
   { call:'examples.unitize()', shards:['tool call','UI case'], pos:[78,56] },
-  { call:'merge_context()', shards:['identity','JOYE'], pos:[50,82] }
+  { call:'merge_context()', shards:['identity','JUDY'], pos:[50,82] }
 ];
 const task=document.createElement('div');
 task.className='task';
-task.textContent='task: compose joye.dev/home';
+task.textContent='task: compose judy.dev/home';
 context.appendChild(task);
 TOOLS.forEach((item,i)=>{
   const tool=document.createElement('div');
@@ -179,7 +170,7 @@ TOOLS.forEach((item,i)=>{
 });
 const merge=document.createElement('div');
 merge.className='merge';
-merge.textContent='merge: context shards → JOYE';
+merge.textContent='merge: context shards → JUDY';
 context.appendChild(merge);
 
 function vw(){ return innerWidth || document.documentElement.clientWidth || 1280; }
@@ -194,7 +185,7 @@ addEventListener('resize', ()=>{ resize(); buildTargets(); });
 addEventListener('mousemove', e=>{ mouse.x=e.clientX*DPR; mouse.y=e.clientY*DPR; });
 addEventListener('mouseleave', ()=>{ mouse.x=mouse.y=-1e9; });
 
-// sample the word "JOYE" into target points (manual letter-spacing for legibility)
+// sample the word "JUDY" into target points (manual letter-spacing for legibility)
 function sampleText(text){
   if(!W || !H) return [];
   const off = document.createElement('canvas');
@@ -232,7 +223,7 @@ function sampleText(text){
 }
 
 function buildTargets(){
-  const pts = sampleText('JOYE');
+  const pts = sampleText('JUDY');
   // grow/shrink the particle pool to match
   while(particles.length < pts.length){
     particles.push({
@@ -390,7 +381,7 @@ function start(){
   raf=requestAnimationFrame(frame);
 }
 function boot(){
-  // sample text only once the real font is ready, so "JOYE" has the right shape
+  // sample text only once the real font is ready, so "JUDY" has the right shape
   if(document.fonts && document.fonts.ready){
     Promise.race([document.fonts.ready, new Promise(r=>setTimeout(r,800))]).then(start);
   } else start();

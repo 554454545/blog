@@ -6,12 +6,12 @@ import type { EmotionId, StatusId } from '@jojo-web/runtime'
  * flies to it, lands on its top edge and talks the visitor through it in a few
  * bubbles. The bubbles carry what the section itself does not say — which
  * post to start with for your situation, what Notes and Lab are, what each
- * product actually is — taken from Joye's posts and notes, the Lab entries and
+ * product actually is — taken from Judy's posts and notes, the Lab entries and
  * the products' own sites. Only stops that exist on the page are visited (the
- * English home has no Talks).
+ * English home skips some).
  */
 
-export type StopId = 'blog' | 'notes' | 'talks' | 'experience'
+export type StopId = 'blog' | 'notes' | 'experience'
 
 export interface Bubble {
   text: string
@@ -30,16 +30,14 @@ export interface Stop {
   mood: EmotionId
 }
 
-export const STOP_ORDER: readonly StopId[] = ['blog', 'notes', 'talks', 'experience']
+export const STOP_ORDER: readonly StopId[] = ['blog', 'notes', 'experience']
 
 const MOODS: Record<StopId, EmotionId> = {
   blog: 'think',
   notes: 'curious',
-  talks: 'happy',
   experience: 'focus'
 }
 
-export const BILIBILI = 'https://space.bilibili.com/3546914882587480'
 const post = (lang: 'zh' | 'en', slug: string) => `${lang === 'en' ? '/en' : ''}/blog/${slug}/post`
 const site = (href: string, label: string) => ({ href, label, external: true })
 
@@ -53,12 +51,12 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           text: '博客这一年主要在写 Agent 工程，分三条线：怎么找 Agent 相关的工作、怎么入门、Agent 产品底下的 Harness 怎么搭。按你的情况挑一条读就好。'
         },
         {
-          text: '在准备 Agent 岗面试的话，先看《面试不是考试，是双向选择》：Joye 面了 100 多家之后，讲为什么要早投简历、录音复盘、认真反问，怎么和创始人聊到同一张桌子上。',
+          text: '在准备 Agent 岗面试的话，先看《面试不是考试，是双向选择》：Judy 面了 100 多家之后，讲为什么要早投简历、录音复盘、认真反问，怎么和创始人聊到同一张桌子上。',
           mood: 'laugh',
           link: { href: post('zh', '20260523---agentinterviewmindset'), label: '读面试心态' }
         },
         {
-          text: '再看那两篇模拟面试复盘：每道题、候选人的回答、Joye 的点评，还有 Joye 自己会怎么答，都摊开写了。',
+          text: '再看那两篇模拟面试复盘：每道题、候选人的回答、Judy 的点评，还有 Judy 自己会怎么答，都摊开写了。',
           mood: 'smug',
           link: { href: post('zh', '20260512---agentmockinterview'), label: '看模拟面试' }
         },
@@ -68,7 +66,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           link: { href: post('zh', '20260517---agentonboardingguide'), label: '读入门指南' }
         },
         {
-          text: '想知道 Agent 产品底下怎么搭，先读权限隔离那篇：Joye 用自己的个人 Agent 和 800 人群里的 QQ bot 举例，讲一条请求要过的五道检查，每道怎么设计、常见错在哪。',
+          text: '想知道 Agent 产品底下怎么搭，先读权限隔离那篇：Judy 用自己的个人 Agent 和 800 人群里的 QQ bot 举例，讲一条请求要过的五道检查，每道怎么设计、常见错在哪。',
           mood: 'focus',
           link: { href: post('zh', '20260912---agentpermissionisolation'), label: '读权限隔离' }
         },
@@ -78,7 +76,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           link: { href: post('zh', '20260912---codexharnessevolution'), label: '读协作尺度' }
         },
         {
-          text: '还有一篇更个人的：Joye 给自己的 Agent 开了独立邮箱，又接上支付授权、记忆和 QQ 分身，聊怎么把它从一次性工具，慢慢变成能长期共事的同伴。',
+          text: '还有一篇更个人的：Judy 给自己的 Agent 开了独立邮箱，又接上支付授权、记忆和 QQ 分身，聊怎么把它从一次性工具，慢慢变成能长期共事的同伴。',
           mood: 'shy',
           link: { href: post('zh', '20260914-agent-email-chatgpt'), label: '读这篇' }
         }
@@ -88,7 +86,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
       title: 'Notes',
       bubbles: [
         {
-          text: 'Notes 和博客不一样：博客是想清楚了才写的长文，这里是 Joye 研究一个东西时整理的笔记，更短，也更贴近工程细节。'
+          text: 'Notes 和博客不一样：博客是想清楚了才写的长文，这里是 Judy 研究一个东西时整理的笔记，更短，也更贴近工程细节。'
         },
         {
           text: '比如拆 Hermes Agent 的记忆系统：不用向量库，靠 SQLite 全文搜索加 LLM 摘要分四层；还有 Prompt Caching、RAG 检索这些专题。',
@@ -101,22 +99,9 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           link: { href: '/lab', label: '去 Lab 玩玩' }
         },
         {
-          text: '比如跳动的数字为什么要用等宽数字、加载提示为什么要晚一点出现。还有一条是 Joye 给我设计状态信号时想明白的：一个状态一个形状，动一下就停。',
+          text: '比如跳动的数字为什么要用等宽数字、加载提示为什么要晚一点出现。还有一条是 Judy 给我设计状态信号时想明白的：一个状态一个形状，动一下就停。',
           mood: 'smug',
           status: 'working'
-        }
-      ]
-    },
-    talks: {
-      title: '直播',
-      bubbles: [
-        {
-          text: '以前这里是群里每周一次的分享，现在改成在 B 站直播了。往期的分享和幻灯片还在下面，点「全部分享」能回看。'
-        },
-        {
-          text: '直播不一定每次都有主题，更像一个线上自习室：Joye 写代码、读文档、做项目，你可以一起学、随时提问，也可以挂着各忙各的。一个人学容易焦虑，一群人一起会轻松很多。',
-          mood: 'laugh',
-          link: site(BILIBILI, '去 B 站看看')
         }
       ]
     },
@@ -133,7 +118,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           link: site('https://atypica.ai/', 'atypica.ai')
         },
         {
-          text: 'AIXCut 是网页上的 AI 剪辑工具，用脚本驱动剪辑；时间线能导出成 Final Cut、Premiere、达芬奇或 CapCut 的工程接着精修。Joye 参与做了里面的剪辑 Agent。',
+          text: 'AIXCut 是网页上的 AI 剪辑工具，用脚本驱动剪辑；时间线能导出成 Final Cut、Premiere、达芬奇或 CapCut 的工程接着精修。Judy 参与做了里面的剪辑 Agent。',
           mood: 'curious',
           link: site('https://aixcut.cn/', 'aixcut.cn')
         },
@@ -150,15 +135,15 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
       title: 'Blog',
       bubbles: [
         {
-          text: 'This year Joye has mostly written about agent engineering, along three threads: landing an agent job, getting started, and how the harness under an agent product is built. Pick the one that fits you.'
+          text: 'This year Judy has mostly written about agent engineering, along three threads: landing an agent job, getting started, and how the harness under an agent product is built. Pick the one that fits you.'
         },
         {
-          text: 'Preparing for agent interviews? Start with “Interviews are a two-way choice”: after 100+ agent interviews, why Joye applies early, records and reviews every round, asks real questions back, and talks with founders as a peer.',
+          text: 'Preparing for agent interviews? Start with “Interviews are a two-way choice”: after 100+ agent interviews, why Judy applies early, records and reviews every round, asks real questions back, and talks with founders as a peer.',
           mood: 'laugh',
           link: { href: post('en', '20260523---agentinterviewmindset'), label: 'Read it' }
         },
         {
-          text: "Then the two mock-interview write-ups lay out every question, the candidate's answer, the feedback, and how Joye would answer it.",
+          text: "Then the two mock-interview write-ups lay out every question, the candidate's answer, the feedback, and how Judy would answer it.",
           mood: 'smug',
           link: { href: post('en', '20260512---agentmockinterview'), label: 'Read one' }
         },
@@ -168,7 +153,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           link: { href: post('en', '20260517---agentonboardingguide'), label: 'Read the guide' }
         },
         {
-          text: "The newest harness posts are in Chinese for now: the five checks a request should pass, which parts of a harness models will absorb and which keep growing, and giving Joye's own agent an inbox.",
+          text: "The newest harness posts are in Chinese for now: the five checks a request should pass, which parts of a harness models will absorb and which keep growing, and giving Judy's own agent an inbox.",
           mood: 'think',
           link: { href: post('zh', '20260912---agentpermissionisolation'), label: 'Read (Chinese)' }
         }
@@ -178,7 +163,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
       title: 'Notes',
       bubbles: [
         {
-          text: 'Notes are different from the blog: posts are written once an idea is settled; notes are what Joye writes while digging into something. Shorter, and closer to the engineering.'
+          text: 'Notes are different from the blog: posts are written once an idea is settled; notes are what Judy writes while digging into something. Shorter, and closer to the engineering.'
         },
         {
           text: "For example: how Hermes Agent's memory works in four layers with SQLite full-text search and LLM summaries instead of a vector store, how to design for prompt caching, the details of RAG retrieval.",
@@ -205,7 +190,7 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
           link: site('https://atypica.ai/', 'atypica.ai')
         },
         {
-          text: 'AIXCut is a script-driven video editor in the browser; the timeline exports to Final Cut, Premiere, DaVinci or CapCut for finishing. Joye worked on its editing agent.',
+          text: 'AIXCut is a script-driven video editor in the browser; the timeline exports to Final Cut, Premiere, DaVinci or CapCut for finishing. Judy worked on its editing agent.',
           mood: 'curious',
           link: site('https://aixcut.cn/', 'aixcut.cn')
         },
@@ -219,16 +204,10 @@ const COPY: Record<'zh' | 'en', Partial<Record<StopId, Copy>>> = {
   }
 }
 
-/** the closing bubble, with the way to swap friend links */
+/** the closing bubble */
 export const GUIDE_END = {
-  zh: {
-    line: '就逛到这儿。想交换友链，去 Links 页按格式留言就行；想找 Joye 聊，点顶部的 Connect Me。',
-    links: { href: '/links#apply-links', label: '去加友链' }
-  },
-  en: {
-    line: "That's the tour. To swap links, leave a note on the Links page; to talk to Joye, hit Connect Me up top.",
-    links: { href: '/en/links#apply-links', label: 'Add a link' }
-  }
+  zh: { line: '就逛到这儿。' },
+  en: { line: "That's the tour." }
 } as const
 
 const isStop = (id: string): id is StopId => (STOP_ORDER as readonly string[]).includes(id)

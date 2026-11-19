@@ -8,7 +8,7 @@ const { default: handler } = await import(
   pathToFileURL(resolve('.vercel/output/functions/_render.func/dist/server/entry.mjs')).href
 )
 const server = createServer((req, res) => {
-  req.headers.host = 'www.joyehuang.me'
+  req.headers.host = 'blog.bunnyjudy.dev'
   req.headers['x-forwarded-proto'] = 'https'
   handler(req, res).catch(() => {
     res.statusCode = 500
@@ -19,14 +19,10 @@ await new Promise((r) => server.listen(0, '127.0.0.1', r))
 try {
   for (const path of [
     '/about',
-    '/contact',
     '/projects',
-    '/links',
     '/tags',
     '/en/about',
-    '/en/contact',
     '/en/projects',
-    '/en/links',
     '/search',
     '/en/search'
   ]) {

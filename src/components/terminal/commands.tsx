@@ -1,4 +1,3 @@
-import { SOCIAL_LINKS } from './fs/content'
 import { displayPath, getNode, parentOf, prettyPath, resolvePath } from './fs/path'
 import type { DirNode, FsNode } from './fs/types'
 import type { CommandRegistry, CompletionContext, OutputLine } from './types'
@@ -14,7 +13,7 @@ type SearchApiResult = {
 
 const MOCK_AGENT_REPLIES: Record<string, string[]> = {
   default: [
-    'Hey, this is Joye (well, a tiny mock of him).',
+    'Hey, this is Judy (well, a tiny mock of him).',
     'Real agent endpoint is wiring up — for now I just rehearse lines.',
     'Try `chat what are you building?` or `chat hire you?` for canned answers.'
   ],
@@ -23,8 +22,7 @@ const MOCK_AGENT_REPLIES: Record<string, string[]> = {
     'and a few half-finished blog posts about Astro + RSC + agent UX.'
   ],
   hire: [
-    'Open to chats — frontend / full-stack / AI-product roles.',
-    'Best path: `mail` (agent@joyehuang.dev) or `connect` for socials.'
+    'Open to chats — frontend / full-stack / AI-product roles.'
   ],
   stack: [
     'Astro 5 · React 19 · UnoCSS · TypeScript · deployed on Vercel.',
@@ -95,19 +93,18 @@ export const commands: CommandRegistry = {
 
   whoami: {
     name: 'whoami',
-    summary: 'about Joye',
+    summary: 'about Judy',
     run: ({ push }) => {
       push([
         {
           kind: 'node',
           node: (
             <span>
-              <span className='wt-tone-primary'>Joye</span>
-              <span className='wt-tone-muted'> · Frontend developer based in Melbourne</span>
+              <span className='wt-tone-primary'>Judy</span>
+              <span className='wt-tone-muted'> · Frontend developer based in Nanjing</span>
             </span>
           )
         },
-        { kind: 'text', tone: 'muted', text: '  ↳ 2nd-year CS @ University of Melbourne' },
         { kind: 'text', tone: 'muted', text: '  ↳ AIGC full-stack intern @ Tezign' },
         {
           kind: 'text',
@@ -274,7 +271,7 @@ export const commands: CommandRegistry = {
       const target = resolvePath(cwd, args[0])
       const node = getNode(fs, target)
       if (!node) {
-        if (/^\/(blog|notes|search|projects|links|about|contact)(\/|$)/.test(args[0])) {
+        if (/^\/(blog|notes|search|projects|about)(\/|$)/.test(args[0])) {
           push([{ kind: 'text', tone: 'muted', text: `navigating ${args[0]} …` }])
           setTimeout(() => navigate(args[0]), 200)
           return
@@ -487,48 +484,6 @@ export const commands: CommandRegistry = {
     }
   },
 
-  mail: {
-    name: 'mail',
-    summary: 'send me an email',
-    run: ({ push }) => {
-      const href = 'mailto:agent@joyehuang.dev?subject=hi%20joye'
-      push([
-        { kind: 'text', tone: 'muted', text: 'opening your mail client…' },
-        {
-          kind: 'node',
-          node: (
-            <a className='wt-link' href={href}>
-              agent@joyehuang.dev
-            </a>
-          )
-        }
-      ])
-      setTimeout(() => {
-        if (typeof window !== 'undefined') window.location.href = href
-      }, 200)
-    }
-  },
-
-  connect: {
-    name: 'connect',
-    summary: 'social links',
-    run: ({ push }) => {
-      push(
-        SOCIAL_LINKS.map<OutputLine>((s) => ({
-          kind: 'node',
-          node: (
-            <span>
-              <span className='wt-tone-primary'>{s.label.padEnd(10)}</span>
-              <a className='wt-link' href={s.href} target='_blank' rel='noreferrer'>
-                {s.href}
-              </a>
-            </span>
-          )
-        }))
-      )
-    }
-  },
-
   theme: {
     name: 'theme',
     summary: 'switch site theme',
@@ -596,8 +551,7 @@ export const commands: CommandRegistry = {
     run: ({ args, push }) => {
       if (args.join(' ') === 'hire-me') {
         push([
-          { kind: 'text', tone: 'ok', text: '✓ permission granted.' },
-          { kind: 'text', tone: 'muted', text: '`mail` to start the conversation.' }
+          { kind: 'text', tone: 'ok', text: '✓ permission granted.' }
         ])
         return
       }

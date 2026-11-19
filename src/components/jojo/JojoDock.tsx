@@ -47,7 +47,7 @@ const COPY = {
   zh: {
     open: '打开 Jojo 小菜单',
     close: '收起 Jojo 小菜单',
-    tagline: 'Joye 的小伙伴，在这儿陪你逛。',
+    tagline: 'Judy 的小伙伴，在这儿陪你逛。',
     nav: 'Jojo 带路',
     latest: '最新一篇',
     random: '随便翻一篇',
@@ -65,7 +65,7 @@ const COPY = {
   en: {
     open: 'Open the Jojo menu',
     close: 'Close the Jojo menu',
-    tagline: "Joye's little companion, keeping you company.",
+    tagline: "Judy's little companion, keeping you company.",
     nav: 'Jojo shortcuts',
     latest: 'Latest post',
     random: 'Surprise me',
@@ -90,7 +90,7 @@ const COPY = {
  * there is no input box, no fake typing, no fake reply — just a plain "not
  * connected yet". Presence rules (lib/jojo/presence.ts): hidden while the intro
  * runs or an in-flow Jojo is on screen, while typing or with the soft keyboard
- * up, and over the comment box on phones; the visitor can tuck it away.
+ * up; the visitor can tuck it away.
  * Reduced motion or Save-Data: no prefetch, no replay entry; a tap still swaps
  * to a static face. Face runs go through a step player (late downloads, newer
  * taps and unmount never leave a stray timer or a pretend reaction).
@@ -103,7 +103,6 @@ export default function JojoDock({ lang, links, home, review = false, staticSvg 
   const [tucked, setTucked] = useState(false)
   const [introRunning, setIntroRunning] = useState(false)
   const [anchorInView, setAnchorInView] = useState(false)
-  const [commentsInView, setCommentsInView] = useState(false)
   const [editing, setEditing] = useState(false)
   const [keyboard, setKeyboard] = useState(false)
   const [compact, setCompact] = useState(false)
@@ -158,7 +157,7 @@ export default function JojoDock({ lang, links, home, review = false, staticSvg 
     }
   }, [])
 
-  // what is on screen: in-flow Jojo anchors, the comment box
+  // what is on screen: in-flow Jojo anchors
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return
     const seen = new Set<Element>()
@@ -168,10 +167,9 @@ export default function JojoDock({ lang, links, home, review = false, staticSvg 
         else seen.delete(e.target)
       }
       setAnchorInView([...seen].some((el) => el.hasAttribute('data-jojo-anchor')))
-      setCommentsInView([...seen].some((el) => el.id === 'waline'))
     })
     const watch = () => {
-      document.querySelectorAll('[data-jojo-anchor], #waline').forEach((el) => {
+      document.querySelectorAll('[data-jojo-anchor]').forEach((el) => {
         if (!rootRef.current?.contains(el)) io.observe(el)
       })
     }
@@ -224,7 +222,6 @@ export default function JojoDock({ lang, links, home, review = false, staticSvg 
     anchorInView,
     editingElsewhere: editing,
     keyboardOpen: keyboard,
-    commentsInView,
     compact,
     open,
     guiding

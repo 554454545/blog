@@ -3,7 +3,6 @@ import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
-import Comment from '@/components/comment/Comment.astro'
 import JojoAbout from '@/components/jojo/JojoAbout.astro'
 import hermesIcon from '@/assets/tools/hermes.png'
 import pencilIcon from '@/assets/tools/pencil.png'
@@ -19,10 +18,10 @@ const headings = [
 ]
 ---
 
-<PageLayout title='About' {headings} info='/about'>
+<PageLayout title='About' {headings}>
   <p>Developer</p>
   <p>
-    我是一名正在墨尔本大学读书的大二学生。平时喜欢音乐，模型和摄影（新爱好！）。目前专注于前端方向，希望成为一名全栈开发者，
+    我是 Judy，现在在 Nanjing。平时喜欢音乐，模型和摄影（新爱好！）。目前专注于前端方向，希望成为一名全栈开发者，
     以及开源佬！虽然说喜欢音乐都是都是被父母“逼”学的钢琴和大提琴。
   </p>
   <p>
@@ -42,7 +41,7 @@ const headings = [
   {/* summer-of-agents */}
   <h2 id='summer-of-agents'>Summer of Agents</h2>
   <p>
-    今年夏天我在粉丝群里发起了「第一届 Joye 粉丝 Agent 比赛」，10 月 4 日晚上的线上展示已经办完。
+    今年夏天我在粉丝群里发起了「第一届 Judy 粉丝 Agent 比赛」，10 月 4 日晚上的线上展示已经办完。
     各队的项目都留在比赛页上，获奖作品和评审时聊到的问题写在了<a href='/blog/20261006---soareview/post'>复盘文章</a>里。
   </p>
   <a
@@ -56,7 +55,7 @@ const headings = [
         >
           第一届
         </span>
-        <span class='text-muted-foreground'>Joye 粉丝 Agent 比赛 · 已圆满结束</span>
+        <span class='text-muted-foreground'>Judy 粉丝 Agent 比赛 · 已圆满结束</span>
       </span>
       <span class='mt-1.5 block text-xl font-bold text-foreground sm:text-2xl'
         >Summer of Agents</span
@@ -97,9 +96,9 @@ const headings = [
       {
         platform: 'GitHub',
         icon: 'github',
-        link: 'https://github.com/joyehuang',
+        link: 'https://github.com/554454545',
         text: 'followers',
-        api: 'github/joyehuang'
+        api: 'github/554454545'
       },
       {
         platform: 'Bilibili',
@@ -456,7 +455,6 @@ const headings = [
   </p>
   <p>
     博客的建设理念是：简洁、高效、注重内容。使用现代化的技术栈，保持快速的加载速度和良好的用户体验。
-    欢迎大家留言交流，一起进步！
   </p>
   <p>Website history:</p>
   <Timeline
@@ -508,9 +506,5 @@ const headings = [
         >Substats</a
       >
     </li>
-    <li>
-      Comment system: <a href='https://waline.js.org/' target='_blank'>Waline</a>
-    </li>
   </ul>
-  <Comment class='mt-8' path='/about' />
 </PageLayout>

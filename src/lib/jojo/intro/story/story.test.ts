@@ -28,7 +28,6 @@ function desktop(): IntroLayout {
       name: { x: 684, y: 240, w: 66, h: 36 },
       chip0: { x: 579, y: 292, w: 171, h: 24 },
       chip1: { x: 778, y: 292, w: 78, h: 24 },
-      connect: { x: 649, y: 344, w: 136, h: 38 },
       card: { x: 284, y: 423, w: 867, h: 73 },
       about: { x: 284, y: 536, w: 867, h: 174 },
       product: { x: 284, y: 750, w: 867, h: 147 }
@@ -53,7 +52,6 @@ function phone(vh: 844 | 667): IntroLayout {
       name: { x: 162, y: 238 + dy, w: 66, h: 36 },
       chip0: { x: 57, y: 290 + dy, w: 171, h: 24 },
       chip1: { x: 256, y: 290 + dy, w: 78, h: 24 },
-      connect: { x: 127, y: 342 + dy, w: 136, h: 38 },
       card: { x: 16, y: 419 + dy, w: 358, h: 120 },
       about: { x: 16, y: 580 + dy, w: 358, h: 294 + dy },
       product: { x: 16, y: 914 + dy, w: 358, h: 203 }
@@ -140,7 +138,7 @@ describe('story intros', () => {
         if (b) texts.add(b.text)
       }
       expect(texts.size).toBe(7)
-      expect([...texts].some((x) => x.includes('墨尔本'))).toBe(true)
+      expect([...texts].some((x) => x.includes('Nanjing'))).toBe(true)
       expect([...texts].some((x) => x.includes('AI Agent'))).toBe(true)
       const tags = plan.sample(plan.duration / 2).props.tags.map((g) => g.text)
       expect(tags).toEqual(['Playyy.ai', 'atypica', 'fAIshion.ai', 'AIXCut'])

@@ -22,12 +22,6 @@ export function classifyTerminalCommand(
     }
   }
 
-  if (command === 'mail') {
-    return {
-      command_result: 'mailto_open',
-      destination_type: 'mailto'
-    }
-  }
 
   if (command === 'open') {
     const input = args[0]
@@ -38,7 +32,7 @@ export function classifyTerminalCommand(
       }
     }
 
-    if (/^\/(blog|notes|search|projects|links|about|contact)(\/|$)/.test(input)) {
+    if (/^\/(blog|notes|search|projects|about)(\/|$)/.test(input)) {
       return {
         command_result: 'navigation',
         destination_type: 'internal'

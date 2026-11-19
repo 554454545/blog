@@ -1,15 +1,14 @@
 ---
 // Scheme A — the end of an article. Static Jojo (two build-time frames, zero
-// framework JS) with three real ways on. When the card first comes into view
+// framework JS) with two real ways on. When the card first comes into view
 // Jojo gives one short happy hop; that is all. It says the *post* ended — it
 // cannot know whether the visitor read it, so it never claims they did.
 import JojoMark from './JojoMark.astro'
 
 interface Props {
   lang: 'zh' | 'en'
-  comments: boolean
 }
-const { lang, comments } = Astro.props
+const { lang } = Astro.props
 const zh = lang === 'zh'
 const rss = zh ? '/rss.xml' : '/en/rss.xml'
 const all = zh ? '/blog' : '/en/blog'
@@ -30,7 +29,6 @@ const all = zh ? '/blog' : '/en/blog'
       <div class='min-w-0'>
         <p class='jojo-end-title'>{zh ? '这篇就到这里啦。' : "That's the end of this one."}</p>
         <p class='jojo-end-links'>
-          {comments && <a href='#waline'>{zh ? '留个言' : 'Leave a comment'}</a>}
           <a href={rss}>RSS</a>
           <a href={all}>{zh ? '更多文章' : 'More posts'}</a>
         </p>

@@ -11,23 +11,22 @@ unless the project explicitly decides to do that later.
 Use Vercel Analytics Pages for routing questions:
 
 - Which pages get traffic.
-- Whether `/blog`, `/talks`, `/projects`, `/contact`, `/en/*`, or individual
+- Whether `/blog`, `/projects`, `/en/*`, or individual
   article pages are visited.
 - Whether English pages have natural traffic.
 
 Use Vercel Analytics Events only for behavior Pages cannot answer:
 
 - In-page interactions that do not necessarily route.
-- External exits such as GitHub, project sites, decks, videos, and docs.
-- Reveals, hovers, or focus states that expose contact or sponsorship info.
+- External exits such as GitHub, project sites, videos, and docs.
+- Reveals, hovers, or focus states that expose article contact or sponsorship info.
 - Terminal commands and terminal-driven navigation.
-- Activity-specific intent such as Agent competition clicks or Talk join intent.
+- Activity-specific intent such as Agent competition clicks.
 
 Do not track ordinary internal navigation as an event if the destination pageview
 already answers the question. Examples to avoid:
 
 - `more_blogs_click`
-- `more_talks_click`
 - `blog_card_click`
 - `tag_click`
 - `back_click`
@@ -53,14 +52,13 @@ Good:
 - `terminal_command`
 - `github_link_click`
 - `agent_competition_click`
-- `contact_method_reveal`
+- `sponsorship_method_reveal`
 
 Bad:
 
 - `home_cta_click`
 - `more_blogs_click`
 - `click_green_button`
-- `talks_page_button_click`
 
 ## Common Properties
 
@@ -71,24 +69,23 @@ input, comment text, search text, or free-form user input.
 | Property           | Meaning                                                | Examples                                                                   |
 | ------------------ | ------------------------------------------------------ | -------------------------------------------------------------------------- |
 | `locale`           | Current site locale.                                   | `zh`, `en`                                                                 |
-| `page`             | Current pathname.                                      | `/`, `/en`, `/contact`, `/talks`                                           |
+| `page`             | Current pathname.                                      | `/`, `/en`, `/blog`, `/projects`                                           |
 | `surface`          | UI area where the interaction happened.                | `home_profile`, `agent_popout`, `projects`, `article_inline`               |
 | `section`          | Content section when useful.                           | `open_source`, `programs`, `sponsorship`                                   |
 | `target`           | Specific interacted object.                            | `profile`, `repo`, `wechat`, `pill`                                        |
 | `action`           | Interaction action.                                    | `click`, `reveal`, `close`, `minimize`, `external_link`                    |
 | `method`           | Interaction method.                                    | `shell_click`, `keyboard_backtick`, `hover`, `focus`                       |
-| `href`             | Destination for anchors.                               | `https://github.com/joyehuang`                                             |
+| `href`             | Destination for anchors.                               | `https://github.com/554454545`                                             |
 | `destination_type` | Normalized destination kind.                           | `internal`, `external`, `github`, `mailto`, `doc`, `video`                 |
-| `command`          | Terminal command name only.                            | `help`, `open`, `mail`, `connect`                                          |
-| `command_result`   | Safe terminal outcome bucket.                          | `success`, `unknown_command`, `navigation`, `external_open`, `mailto_open` |
+| `command`          | Terminal command name only.                            | `help`, `open`, `cd`, `cat`                                                |
+| `command_result`   | Safe terminal outcome bucket.                          | `success`, `unknown_command`, `navigation`, `external_open`                |
 | `repo`             | Repository name for GitHub clicks.                     | `Learn-Open-Harness`, `interview-prep`                                     |
 | `project`          | Project identifier for project clicks.                 | `atypica`, `aixcut`, `prepwise`                                            |
 | `team`             | Agent competition team identifier.                     | `game-agent`, `rss-agent`                                                  |
 | `link_type`        | Project link type.                                     | `site`, `github`, `doc`, `release`                                         |
-| `method_name`      | Contact or payment method.                             | `wechat`, `qq_group`, `wechat_pay`, `alipay`                               |
+| `method_name`      | Article contact or payment method.                     | `wechat`, `qq_group`, `wechat_pay`, `alipay`                               |
 | `article_slug`     | Article identifier for article-scoped events.          | `20260517---agentonboardingguide`                                          |
-| `episode`          | Talk episode number.                                   | `1`, `2`                                                                   |
-| `resource`         | Talk or article resource type.                         | `deck`, `video`, `record`, `slide`                                         |
+| `resource`         | Resource type.                                         | `builds_home`                                                              |
 | `source`           | How the surface was reached when relevant.             | `first_visit`, `replay`                                                    |
 | `duration_ms`      | Elapsed interaction time in milliseconds.              | `4200`, `9300`                                                             |
 | `time_to_cta_ms`   | Elapsed time from surface start to CTA view.           | `3600`, `4100`                                                             |
@@ -127,7 +124,7 @@ Required properties:
 - `page`: current pathname
 - `surface`: `terminal`
 - `target`: `terminal_shell`
-- `command`: command name only, for example `help`, `open`, `mail`, `connect`
+- `command`: command name only, for example `help`, `open`, `cd`, `cat`
 - `command_result`: safe bucket, not raw command text
 - `destination_type`: optional destination bucket for commands that open something
 
@@ -141,7 +138,7 @@ Required properties:
 
 - `locale`: `zh` | `en`
 - `page`: current pathname
-- `surface`: `home_profile` | `home_open_source` | `about_social` | `projects` | `terminal_contact` | `footer`
+- `surface`: `home_profile` | `home_open_source` | `about_social` | `projects` | `footer`
 - `target`: `profile` | `repo`
 - `repo`: repo name when `target` is `repo`, otherwise `null`
 - `href`: GitHub URL
@@ -330,9 +327,9 @@ Required properties:
 - `locale`, `page`
 - `surface`: `jojo_dock`
 - `action`: `start` | `complete` | `exit`
-- `steps`: number of stops on this page (5 on `/`, 3 on `/en`), for `start`
+- `steps`: number of stops on this page (4 on `/`, 3 on `/en`), for `start`
   and `complete`
-- `step`: the stop the visitor left on (`product` | `blog` | `notes` | `talks`
+- `step`: the stop the visitor left on (`product` | `blog` | `notes`
   | `experience`), for `exit` only
 - `steps_seen`: how many stops were shown before leaving, for `exit` only
 
@@ -340,9 +337,7 @@ Required properties:
 tour is ended (× or Esc) before that. At most once per page
 view per action. Clicks on links inside the sections are left to their own
 events (`project_link_click`, `github_link_click`) and Pages; the bubble's own
-links (the Bilibili live room, the Links page) are left to Pages (`/links`)
-and outbound-link tracking. The `talks` stop is about the live streams that
-replaced the weekly talks (2026-10-03); the `notes` stop also introduces Lab;
+links are left to Pages and outbound-link tracking. The `notes` stop also introduces Lab;
 Open Source, Education and Skills are not stops. Each stop is talked through in several bubbles; moving between bubbles
 is not tracked.
 
@@ -362,21 +357,6 @@ Not tracked on purpose: Jojo impressions, greetings, the end-of-post card
 coming into view (it does not prove reading), and anything typed — the dock
 has no text input until a real chat backend exists.
 
-### `contact_method_reveal`
-
-User reveals contact information on the Contact page.
-
-Required properties:
-
-- `locale`: `zh` | `en`
-- `page`: `/contact` | `/en/contact`
-- `surface`: `contact_page`
-- `method_name`: `wechat` | `qq_group`
-- `action`: `reveal`
-- `method`: `hover` | `focus`
-
-Fire once per method per pageview. Do not fire repeatedly on every mouse move.
-
 ### `article_contact_reveal`
 
 User reveals inline WeChat contact information inside an article.
@@ -391,8 +371,7 @@ Required properties:
 - `action`: `reveal`
 - `method`: `hover` | `focus`
 
-This is a stronger consulting/contact intent signal than a generic Contact page
-view because it happens inside article context.
+This is a consulting/contact intent signal that happens inside article context.
 
 ### `sponsorship_method_reveal`
 
@@ -426,37 +405,6 @@ Required properties:
 
 Do not also fire `github_link_click` for the same click unless there is an
 explicit need to duplicate the signal. Prefer one event per user action.
-
-### `talk_resource_click`
-
-User clicks a resource attached to a Talk.
-
-Required properties:
-
-- `locale`: `zh` | `en`
-- `page`: current pathname
-- `surface`: `talks_feed` | `article_callout` | `article_slide`
-- `episode`: talk episode number when available
-- `resource`: `deck` | `video` | `record` | `slide`
-- `href`: destination URL
-
-Use this because Pages can show `/talks` traffic, but cannot show whether people
-opened the deck or watched the recording.
-
-### `talk_join_intent`
-
-User clicks a Talk-specific "join" or "participate" entry point.
-
-Required properties:
-
-- `locale`: `zh` | `en`
-- `page`: current pathname
-- `surface`: `talks_hero` | `talks_preview` | `talks_upcoming`
-- `target`: `contact`
-- `href`: contact URL
-
-This is allowed even though it routes to Contact because the source intent
-("join the talks") is lost in a plain Contact pageview.
 
 ### `language_switch_click`
 
@@ -563,12 +511,9 @@ Implemented in current code:
 - `intro_skip`
 - `intro_replay`
 - `intro_abandon`
-- `contact_method_reveal`
 - `article_contact_reveal`
 - `sponsorship_method_reveal`
 - `project_link_click`
-- `talk_resource_click`
-- `talk_join_intent`
 - `language_switch_click`
 - `page_not_found`
 - `jojo_poke`, `jojo_dock_action`, `jojo_guide`, `jojo_story_play` (Jojo builds only)

@@ -39,7 +39,7 @@ const QUERY = `
 `
 
 export const GET: APIRoute = async ({ url }) => {
-  const username = url.searchParams.get('username') ?? 'joyehuang'
+  const username = url.searchParams.get('username') ?? '554454545'
   const token = import.meta.env.GITHUB_TOKEN ?? process.env.GITHUB_TOKEN
 
   // No token (local dev, previews) → fall back to the public calendar, which
@@ -53,7 +53,7 @@ export const GET: APIRoute = async ({ url }) => {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
-        'User-Agent': 'joyehuang.me'
+        'User-Agent': 'blog.bunnyjudy.dev'
       },
       body: JSON.stringify({ query: QUERY, variables: { login: username } })
     })

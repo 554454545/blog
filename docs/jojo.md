@@ -1,6 +1,6 @@
-# Jojo on joyehuang.me
+# Jojo on blog.bunnyjudy.dev
 
-Jojo is Joye's character (the approved lead of the private _Jojo & Friends_
+Jojo is Judy's character (the approved lead of the private _Jojo & Friends_
 family). This site shows it in three ways that are designed to work together.
 
 ## Three surfaces
@@ -35,12 +35,10 @@ family). This site shows it in three ways that are designed to work together.
   bubbles carry what the section does not say: which post to start with for
   your situation (with links), what Notes are and what Lab is (Lab has no
   home section, so Notes introduces it), what each product actually is (from
-  the products' own sites, each with a link), the live streams that replaced
-  the weekly talks. Stops: Blog, Notes (+ Lab), 直播 (Talks),
+  the products' own sites, each with a link). Stops: Blog, Notes (+ Lab),
   Experience — Open Source, Education and Skills are skipped, and Blog leaves
-  out the OpenHarness post and the early Transformer series. The closing
-  bubble links to
-  `/links#apply-links` for friend links; `success` status at the end. Next
+  out the OpenHarness post and the early Transformer series.
+  `success` status at the end on the closing bubble. Next
   while a line is still typing finishes it first. Eyes follow a fine pointer once a
   line is typed; poking it gets a reaction. Back / Next (or ← / →), Esc or ×
   to end; at the end it flies home to the seat ("back to top") or the corner.
@@ -50,15 +48,15 @@ family). This site shows it in three ways that are designed to work together.
 
 ### C · intro
 
-- **What:** "Night tour", a first-visit intro that tells who Joye is (≈ 16 s
+- **What:** "Night tour", a first-visit intro that tells who Judy is (≈ 16 s
   zh, 18 s en). The page opens dark from the first frame: the head gate arms
   the intro before first paint and JojoHead's CSS paints the night over it
   (`html[data-jojo-intro='armed']::after`, lifts itself after 4.5 s if no
   script runs), so the blog never shows first. Jojo dozes in a pool of light,
   wakes ("someone's here?"), switches the light on and walks the visitor
-  through Joye in seven lines — who (avatar + name light up as the welcome
-  ends), Melbourne, the projects (Playyy.ai / atypica / fAIshion.ai / AIXCut
-  tags pop out at its feet and file into About), what Joye cares about, the
+  through Judy in seven lines — who (avatar + name light up as the welcome
+  ends), Nanjing, the projects (Playyy.ai / atypica / fAIshion.ai / AIXCut
+  tags pop out at its feet and file into About), what Judy cares about, the
   hobbies (three badges), and a hand-over; then the lights come up on the rest
   and Jojo hops into its seat. All copy comes from the About text.
 - **Staging:** Jojo talks in the free space left of the avatar, then on the
@@ -82,7 +80,7 @@ family). This site shows it in three ways that are designed to work together.
 By default: first visit to `/` or `/en` → C plays and ends
 by landing in A's seat → while the seat is on screen the dock stays away; once
 the hero scrolls off, B slides in. On posts, the dock keeps you company and
-steps aside when the end-of-post Jojo (A) or, on phones, the comment box comes
+steps aside when the end-of-post Jojo (A) comes
 into view. One Jojo per viewport, always. Return visits: no intro, everything
 still unless poked.
 
@@ -177,7 +175,7 @@ freezes the intro at a frame for inspection.
 - **Film hosting:** About links the published film on Cloudflare's `r2.dev`
   host (rate-limited dev hostname). Move it to a production host before launch.
 - **Copy:** the few Jojo lines (About, 404, end card, dock) are placeholders in
-  the site's voice; final wording is Joye's call.
+  the site's voice; final wording is Judy's call.
 - **Coral dot at 24–32 px** may read as a notification badge.
 
 ## Tests

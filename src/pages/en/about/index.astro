@@ -3,7 +3,6 @@ import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
-import Comment from '@/components/comment/Comment.astro'
 import JojoAbout from '@/components/jojo/JojoAbout.astro'
 import hermesIcon from '@/assets/tools/hermes.png'
 import pencilIcon from '@/assets/tools/pencil.png'
@@ -19,10 +18,10 @@ const headings = [
 ]
 ---
 
-<PageLayout title='About' {headings} info='/about'>
+<PageLayout title='About' {headings}>
   <p>Developer</p>
   <p>
-    I'm a second-year undergraduate at the University of Melbourne. Outside of coding I spend time
+    I'm Judy, based in Nanjing. Outside of coding I spend time
     on music, scale models, and photography (a new hobby!). Currently focused on frontend, with the
     goal of becoming a full-stack developer — and an open-source contributor. My taste for music
     started with piano and cello, which my parents pushed me into.
@@ -44,7 +43,7 @@ const headings = [
   {/* summer-of-agents */}
   <h2 id='summer-of-agents'>Summer of Agents</h2>
   <p>
-    This summer I kicked off the first Joye fan-group Agent competition, with a dozen-plus tracks
+    This summer I kicked off the first Judy fan-group Agent competition, with a dozen-plus tracks
     to explore. The final showcase took place on the evening of October 4. Every team's project is
     still on the competition page, and the winners plus the questions we kept coming back to during
     judging are in the <a href='/blog/20261006---soareview/post'>wrap-up post</a>. Both pages are in Chinese.
@@ -60,7 +59,7 @@ const headings = [
         >
           1st edition
         </span>
-        <span class='text-muted-foreground'>Joye fan-group Agent competition</span>
+        <span class='text-muted-foreground'>Judy fan-group Agent competition</span>
       </span>
       <span class='mt-1.5 block text-xl font-bold text-foreground sm:text-2xl'
         >Summer of Agents</span
@@ -109,9 +108,9 @@ const headings = [
       {
         platform: 'GitHub',
         icon: 'github',
-        link: 'https://github.com/joyehuang',
+        link: 'https://github.com/554454545',
         text: 'followers',
-        api: 'github/joyehuang'
+        api: 'github/554454545'
       },
       {
         platform: 'Bilibili',
@@ -382,7 +381,7 @@ const headings = [
   </p>
   <p>
     The principle behind the site: keep it simple, fast, and content-first. Modern stack, fast
-    loads, no friction. Comments welcome — let's learn together.
+    loads, no friction.
   </p>
   <p>Website history:</p>
   <Timeline
@@ -437,9 +436,5 @@ const headings = [
         >Substats</a
       >
     </li>
-    <li>
-      Comment system: <a href='https://waline.js.org/' target='_blank'>Waline</a>
-    </li>
   </ul>
-  <Comment class='mt-8' path='/about' />
 </PageLayout>

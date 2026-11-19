@@ -5,7 +5,7 @@ import { renderJojoSvg } from '@jojo-web/static'
 import avatar from 'src/assets/avatar.png'
 
 import { Quote } from 'astro-pure/advanced'
-import { Button, Card, Icon, Label } from 'astro-pure/user'
+import { Button, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import PostPreviewEn from '@/components/blog/PostPreviewEn.astro'
 import LinkCard from '@/components/home/LinkCard.astro'
@@ -127,13 +127,13 @@ const latestNotes = (await getCollection('notesEn'))
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold' data-jojo-piece='name'>{config.author}</h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3' data-jojo-piece='labels'>
-          <Label title='Melbourne, Australia'>
+          <Label title='Nanjing'>
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
             title='GitHub'
             as='a'
-            href='https://github.com/joyehuang'
+            href='https://github.com/554454545'
             target='_blank'
             data-analytics-event='github_link_click'
             data-analytics-surface='home_profile'
@@ -142,21 +142,6 @@ const latestNotes = (await getCollection('notesEn'))
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
         </div>
-      </div>
-
-      <div class='flex flex-row gap-3' data-jojo-piece='connect'>
-        <a
-          href='/en/contact'
-          class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
-        >
-          <span class='relative flex items-center justify-center'>
-            <span
-              class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
-            ></span>
-            <span class='size-2 rounded-full bg-green-400'></span>
-          </span>
-          <p class='font-medium text-muted-foreground'>Connect Me!</p>
-        </a>
       </div>
     </section>
 
@@ -170,7 +155,7 @@ const latestNotes = (await getCollection('notesEn'))
       <Section title='About' data-jojo-piece='about'>
         <p class='text-muted-foreground'>AI Agent & Full-Stack Developer</p>
         <p class='text-muted-foreground'>
-          Undergraduate at the University of Melbourne. Currently working on Playyy.ai at Adastra
+          Currently working on Playyy.ai at Adastra
           Labs (Shimo Docs), building atypica (a multi-agent system for commercial research) at
           Tezign, and working on AI full-stack features and a video-editing agent at fAIshion.ai and
           Goshu Tech. I care about how LLMs actually work under the hood, and about shipping
@@ -320,14 +305,6 @@ const latestNotes = (await getCollection('notesEn'))
             />
           ))
         }
-      </Section>
-      <Section title='Education'>
-        <Card
-          as='a'
-          heading='University of Melbourne'
-          subheading='Bachelor of Science — Computing & Software Systems'
-          date='Feb 2024 - Jun 2027'
-        />
       </Section>
 
       <Section title='Skills'>

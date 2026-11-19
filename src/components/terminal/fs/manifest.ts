@@ -3,8 +3,7 @@ import {
   MOTD_TEXT,
   NOW_TEXT,
   PERSONALITY_TEXT,
-  README_TEXT,
-  SOCIAL_LINKS
+  README_TEXT
 } from './content'
 import type { DirNode, FsNode } from './types'
 
@@ -16,7 +15,7 @@ import type { DirNode, FsNode } from './types'
 export type FsCollectionEntry = {
   id: string
   routeId: string
-  kind: 'blog' | 'blog_en' | 'notes' | 'notes_en' | 'curated' | 'talks'
+  kind: 'blog' | 'blog_en' | 'notes' | 'notes_en' | 'curated'
   data: {
     title: string
     description?: string
@@ -36,14 +35,13 @@ export type BuildArgs = {
   notes: FsCollectionEntry[]
   notesEn: FsCollectionEntry[]
   curated: FsCollectionEntry[]
-  talks: FsCollectionEntry[]
 }
 
 /**
  * Build the pseudo-FS root from collection data. Pure function: same input
  * always yields the same tree. Called once per page render in BaseLayout.
  */
-export function buildManifest({ blog, blogEn, notes, notesEn, curated, talks }: BuildArgs): FsNode {
+export function buildManifest({ blog, blogEn, notes, notesEn, curated }: BuildArgs): FsNode {
   return {
     type: 'dir',
     name: '',
@@ -57,8 +55,6 @@ export function buildManifest({ blog, blogEn, notes, notesEn, curated, talks }: 
       buildPostsDir('blog_en', 'English blog mirrors', blogEn, '/en/blog'),
       buildPostsDir('notes_en', 'English short-form note mirrors', notesEn, '/en/notes'),
       buildPostsDir('curated', 'curated external readings and digests', curated, '/curated'),
-      buildPostsDir('talks', 'weekly sharing sessions', talks, '/talks'),
-      buildContactDir(),
       buildEtcDir(),
       {
         type: 'link',
@@ -93,7 +89,7 @@ function buildPostDir(p: FsCollectionEntry, hrefRoot: string): DirNode {
   const lang = p.data.language ?? inferLang(p)
   const href = hrefFor(p, hrefRoot)
   const endpoint = `/api/knowledge/content/${p.kind}/${encodeURI(p.id)}`
-  const canonicalUrl = `https://joyehuang.me${href}`
+  const canonicalUrl = `https://blog.bunnyjudy.dev${href}`
   const metaContent = formatMeta({
     title: p.data.title,
     date,
@@ -185,7 +181,6 @@ function buildPostDir(p: FsCollectionEntry, hrefRoot: string): DirNode {
 
 function hrefFor(p: FsCollectionEntry, hrefRoot: string): string {
   if (p.kind === 'curated') return `${hrefRoot}#${encodeURIComponent(p.routeId)}`
-  if (p.kind === 'talks') return `${hrefRoot}#${encodeURIComponent(p.routeId)}`
   return `${hrefRoot}/${encodeURI(p.routeId)}`
 }
 
@@ -199,19 +194,6 @@ function inferLang(p: FsCollectionEntry): string {
   if (explicit) return explicit
   if (/(^|\/)en\//.test(p.id)) return 'en'
   return 'zh'
-}
-
-function buildContactDir(): DirNode {
-  return {
-    type: 'dir',
-    name: 'contact',
-    description: 'where to reach me',
-    children: SOCIAL_LINKS.map<FsNode>((s) => ({
-      type: 'link',
-      name: s.label,
-      href: s.href
-    }))
-  }
 }
 
 function buildEtcDir(): DirNode {

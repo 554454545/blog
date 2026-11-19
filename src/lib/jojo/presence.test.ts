@@ -9,7 +9,6 @@ const base: PresenceInput = {
   anchorInView: false,
   editingElsewhere: false,
   keyboardOpen: false,
-  commentsInView: false,
   compact: false,
   open: false
 }
@@ -32,10 +31,6 @@ describe('dock presence', () => {
     expect(dockPresence({ ...base, keyboardOpen: true })).toBe('hidden')
   })
 
-  it('never covers the comment box on phones; desktop keeps the corner', () => {
-    expect(dockPresence({ ...base, compact: true, commentsInView: true })).toBe('hidden')
-    expect(dockPresence({ ...base, compact: false, commentsInView: true })).toBe('shown')
-  })
 
   it('stays away while Jojo is out guiding (one Jojo per viewport)', () => {
     expect(dockPresence({ ...base, guiding: true })).toBe('hidden')

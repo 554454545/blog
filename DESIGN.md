@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Joye Blog
+name: Judy Blog
 description: A solo engineer's blog and portfolio (Astro). Calm, editorial, technical on the main reading surfaces — chrome stays quiet so writing and project work are the subject. A separate, deliberately playful terminal/dev-mode/mascot layer exists as an easter egg and does not follow these tokens (see Sub-themes).
 colors:
   background: 'hsl(210 33% 99%)'
@@ -193,8 +193,8 @@ the Tailwind px values exactly:
 - `max-width: 640px` is the de facto mobile breakpoint (mirrors Tailwind
   `sm`) — [`Header.astro:225`](src/components/Header.astro),
   `ContentLayout.astro:183`, `FeatureCalloutCard.astro:199`,
-  `FriendConstellation.astro:434`, `GitHubContributions.astro:476`,
-  `devmode.css:349`, `TalksSeries.astro:992`.
+  `GitHubContributions.astro:476`,
+  `devmode.css:349`.
 - `min-width`/`max-width: 768px`–`800px` is the de facto tablet breakpoint
   (mirrors Tailwind `md`, loosely) —
   [`Header.astro:215`](src/components/Header.astro) uses `800px`,
@@ -351,7 +351,7 @@ scale.
 
 ### Jojo (character layer)
 
-Jojo is Joye's character (private package `@joyehuang/jojo-web`, see
+Jojo is Judy's character (private package `@joyehuang/jojo-web`, see
 [`docs/jojo.md`](docs/jojo.md)). Like the terminal, it is its own "device":
 it keeps the approved palette (indigo shell, mint face, coral signal dot) and
 is never recoloured into site tokens. Everything _around_ Jojo — the dock
@@ -381,7 +381,7 @@ a transparent ≥ 44 px hit area with a `--ring` focus-visible outline.
   inert layer (originals hidden by `visibility` only, with a CSS failsafe).
   It opens dark from the very first frame (the head gate paints it), so the
   blog never shows first; Jojo wakes up, switches the light on and introduces
-  Joye in speech bubbles, each line lighting what it talks about. Bubbles use
+  Judy in speech bubbles, each line lighting what it talks about. Bubbles use
   Jojo's palette (white, indigo border) and pick the side of Jojo that covers
   least of what is lit. Pieces stay whole and readable: rigid moves only.
   Only pieces really on screen take part, and the Skip pill is a keep-out.

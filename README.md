@@ -9,8 +9,7 @@
 - Blog：正式文章，支持中英文镜像。
 - Notes：短笔记、研究卡片、未成稿材料和面试题沉淀。
 - Curated：外部文章、论文、项目的精选与消化。
-- Talks：公开分享、幻灯片和活动记录。
-- Projects / Links / About / Contact：个人主页常见页面。
+- Projects / Links / About：个人主页常见页面。
 - 中英文路由、RSS、站内搜索、评论、访问统计、OG 图片和 agent 读取接口。
 
 ## 技术栈
@@ -20,7 +19,6 @@
 - UnoCSS / Astro Theme Pure
 - Bun
 - Vercel Analytics / Speed Insights
-- Waline comments
 
 ## 快速开始
 
@@ -56,18 +54,15 @@ bun run build
 
 优先替换这些位置：
 
-- `src/site.config.ts`: 站点标题、作者、导航、社交链接、友链申请信息、评论服务等全局配置。
+- `src/site.config.ts`: 站点标题、作者、导航、社交链接等全局配置。
 - `src/pages/about/index.astro` 和 `src/pages/en/about/index.astro`: 关于页内容。
-- `src/pages/contact/index.astro` 和 `src/pages/en/contact/index.astro`: 联系方式与二维码展示。
 - `src/assets/avatar.png`: 首页和站点使用的头像。
 - `public/favicon/*`: 浏览器图标和 PWA 图标。
-- `public/links.json`: 友链数据。
 - `src/content/blog`: 正式文章。
 - `src/content/notes`: notes、研究卡片和未成稿材料。
 - `src/content/curated`: 精选外部资料。
-- `src/content/talks` 和 `public/talks`: 公开分享、幻灯片或活动记录。
 
-如果你不需要某些页面，例如 talks、curated、links 或 notes，可以删除对应页面、内容集合和导航项。
+如果你不需要某些页面，例如 curated、links 或 notes，可以删除对应页面、内容集合和导航项。
 
 ## 内容约定
 
@@ -111,12 +106,12 @@ Notes 的 `status` 可选：
 
    - 目标：让 agent 能一键部署这个博客模板。
    - 需要覆盖：依赖安装、环境变量检查、Vercel 项目初始化、域名/站点配置提示、build 验证和部署后 smoke test。
-   - 输入：仓库路径、部署目标、站点域名、评论/Analytics 开关。
+   - 输入：仓库路径、部署目标、站点域名、Analytics 开关。
    - 输出：部署 URL、需要人工确认的配置项、失败时的最小排查路径。
 
 2. `materialize-clean-blog-template`
    - 目标：从当前个人博客生成一个“真空模板”，去掉个人内容，只保留可复用结构。
-   - 需要覆盖：清空或替换 `src/content/*`、头像/favicon/二维码/友链、个人项目、联系方式、公开 talks、analytics 事件中的个人语义。
+   - 需要覆盖：清空或替换 `src/content/*`、头像/favicon/二维码、个人项目、analytics 事件中的个人语义。
    - 输入：模板目标路径、站点名称、作者名、是否保留 demo 内容。
    - 输出：一个可直接初始化的新博客模板目录，以及替换清单。
 
@@ -138,12 +133,6 @@ Notes 的 `status` 可选：
 - `about/ToolSection.astro`: 关于页工具栈展示。
 - `blog/CopyrightEn.astro`: 英文博客详情页版权卡片，日期走 en-US。
 - `blog/FeatureCalloutCard.astro`: 博客内功能/重点卡片。
-- `blog/TalkEpisodeCard.astro`: 博客内嵌分享会入口卡片。
-- `blog/TalkSlideFigure.astro`: 博客内嵌分享会 slide 图片。
-- `comment/Comment.astro`: Waline 评论挂载。
-- `comment/PageInfo.astro`: 页面浏览量/评论元信息。
-- `comment/ViewCounter.astro`: 浏览量计数。
-- `contact/ContactQR.astro`: 联系页二维码卡片。
 - `curated/CuratedItem.astro`: Curated 单条资料卡。
 - `curated/CuratedLibrary.astro`: Curated 列表、筛选和布局。
 - `home/LinkCard.astro`: 首页外链卡片。
@@ -152,8 +141,6 @@ Notes 的 `status` 可选：
 - `home/SiteStats.astro`: 首页站点统计。
 - `home/SkillLayout.astro`: 首页技能/工具布局。
 - `intro/IntroOverlay.astro`: 首页开场动效/引导层。
-- `links/FriendConstellation.astro`: 友链星座可视化。
-- `links/FriendList.astro`: 友链列表。
 - `mascot/JoJo.tsx` 和 `mascot/jojo.css`: 首页 mascot 交互组件。
 - `navigation/BackToTop.astro`: 回到顶部按钮。
 - `navigation/TableOfContents.astro`: 文章目录容器。
@@ -164,7 +151,6 @@ Notes 的 `status` 可选：
 - `projects/Sponsors.astro`: 赞助者列表。
 - `projects/Sponsorship.astro`: 赞助入口。
 - `search/SiteSearch.astro`: 站内搜索 UI（走 /api/search.json，中英文各自索引）。
-- `talks/TalksSeries.astro`: Talks 时间线/系列展示。
 - `terminal/*`: terminal dev mode、pseudo-FS、命令系统、文章 viewer 和样式。
 
 ## 部署
@@ -174,7 +160,6 @@ Notes 的 `status` 可选：
 部署前请确认：
 
 - 已替换站点域名、作者、头像和 favicon。
-- 已替换或关闭 Waline 评论服务。
 - 已确认 Analytics / Speed Insights 是否符合你的隐私和合规要求。
 - 已清理示例文章、示例图片、二维码和个人联系方式。
 

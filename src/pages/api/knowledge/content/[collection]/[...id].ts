@@ -9,8 +9,7 @@ const COLLECTIONS = {
   blog_en: 'blogEn',
   notes: 'notes',
   notes_en: 'notesEn',
-  curated: 'curated',
-  talks: 'talks'
+  curated: 'curated'
 } as const
 
 type PublicCollection = keyof typeof COLLECTIONS
@@ -114,12 +113,11 @@ function canonicalUrl(collection: PublicCollection, entry: KnowledgeEntry): stri
   const routeId =
     collection.endsWith('_en') && entry.data.translationKey ? entry.data.translationKey : entry.id
   const encoded = encodeURI(routeId)
-  if (collection === 'blog') return `https://joyehuang.me/blog/${encoded}`
-  if (collection === 'blog_en') return `https://joyehuang.me/en/blog/${encoded}`
-  if (collection === 'notes') return `https://joyehuang.me/notes/${encoded}`
-  if (collection === 'notes_en') return `https://joyehuang.me/en/notes/${encoded}`
-  if (collection === 'curated') return `https://joyehuang.me/curated#${encodeURIComponent(routeId)}`
-  return `https://joyehuang.me/talks#${encodeURIComponent(routeId)}`
+  if (collection === 'blog') return `https://blog.bunnyjudy.dev/blog/${encoded}`
+  if (collection === 'blog_en') return `https://blog.bunnyjudy.dev/en/blog/${encoded}`
+  if (collection === 'notes') return `https://blog.bunnyjudy.dev/notes/${encoded}`
+  if (collection === 'notes_en') return `https://blog.bunnyjudy.dev/en/notes/${encoded}`
+  return `https://blog.bunnyjudy.dev/curated#${encodeURIComponent(routeId)}`
 }
 
 function formatDate(value: Date | string | undefined): string {

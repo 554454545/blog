@@ -36,8 +36,7 @@ const blogSchema = ({ image }: SchemaContext) =>
     translationKey: z.string().optional(),
     tocDepth: z.number().int().min(2).max(6).optional(),
     tocLabels: z.record(z.string(), z.string()).optional(),
-    draft: z.boolean().default(false),
-    comment: z.boolean().default(true)
+    draft: z.boolean().default(false)
   })
 
 const notesSchema = z.object({
@@ -114,48 +113,6 @@ const curated = defineCollection({
     })
 })
 
-// Weekly sharing-session series (分享会 / Talks). Each entry is one session;
-// the structured fields drive the changelog feed, tag filter and per-session detail.
-const talksSchema = z.object({
-  // Required
-  episode: z.number(),
-  title: z.string(),
-  date: z.coerce.date(),
-  // Optional meta
-  subtitle: z.string().optional(),
-  durationMinutes: z.number().optional(),
-  attendees: z.string().optional(),
-  deckUrl: z.string().optional(),
-  slideCount: z.number().optional(),
-  video: z
-    .object({
-      bvid: z.string(),
-      url: z.string().url().optional()
-    })
-    .optional(),
-  // Structured content (topics keep their display casing, so no lowercase transform)
-  topics: z.array(z.string()).default([]),
-  quotes: z.array(z.object({ text: z.string(), gloss: z.string().optional() })).default([]),
-  takeaways: z.array(z.object({ title: z.string(), desc: z.string().optional() })).default([]),
-  diagrams: z.array(z.object({ src: z.string(), caption: z.string().optional() })).default([]),
-  // Cover-style teaser shown on the Talks feed when an episode is upcoming.
-  // Mirrors the deck's terminal cover: a shell prompt line + a loading line.
-  teaser: z
-    .object({
-      prompt: z.string(),
-      loading: z.string().optional()
-    })
-    .optional(),
-  // State
-  status: z.enum(['published', 'upcoming']).default('published'),
-  draft: z.boolean().default(false)
-})
-
-const talks = defineCollection({
-  loader: glob({ base: './src/content/talks', pattern: ['**/*.{md,mdx}', '!**/*.en.{md,mdx}'] }),
-  schema: talksSchema
-})
-
 // Lab: a gallery of small frontend demos & tips. Each entry co-locates its demo
 // component (a `.tsx` island, ignored by the md/mdx loader) with an `index.mdx`
 // that embeds it and adds the write-up.
@@ -187,4 +144,4 @@ const lab = defineCollection({
     })
 })
 
-export const collections = { blog, blogEn, notes, notesEn, curated, talks, lab }
+export const collections = { blog, blogEn, notes, notesEn, curated, lab }

@@ -1,6 +1,6 @@
 ---
 title: 写给所有"想入门 Agent 但不知道从哪开始"的人
-description: 'Joye 的 Agent 工程师入门指南 v1.2：用 1.8 万字把"Agent 是什么、为什么是现在、怎么入门、怎么求职"讲清楚——给所有想动手但不知道从哪开始的人。'
+description: 'Judy 的 Agent 工程师入门指南 v1.2：用 1.8 万字把"Agent 是什么、为什么是现在、怎么入门、怎么求职"讲清楚——给所有想动手但不知道从哪开始的人。'
 publishDate: 2026-05-17 00:00:00
 updatedDate: 2026-07-25 00:00:00
 tags: ['Agent', 'LLM', '入门', '学习路线', '求职', 'AI']
@@ -51,19 +51,19 @@ import VersionChangelog from '@/components/blog/VersionChangelog.astro'
 
 ### 关于作者
 
-我叫 Joye，墨尔本大学计算与软件工程在读，目前在**上海一家独角兽公司做 Agent 全栈开发实习**，日常就是这份文档里写的那些东西：Harness、上下文工程、工具调用、Eval。
+我叫 Judy，墨尔本大学计算与软件工程在读，目前在**上海一家独角兽公司做 Agent 全栈开发实习**，日常就是这份文档里写的那些东西：Harness、上下文工程、工具调用、Eval。
 
 2025 年底到 2026 年初，我密集面过 100+ 家 AI 公司的 Agent 相关岗位，拿到了 **30+ 个 offer**。这段经历是这份文档的来源，也沉淀成了它的两篇"前传"：
 
-- [《一个大二实习生的 Agent 开发面试修炼手册》](https://www.joyehuang.me/blog/20260309---agentinterview/post)（2026 年 3 月）——我自己求职过程的完整复盘。这篇是我后来开始接付费咨询的起点。
-- [《一场 1 小时 19 分钟的 Agent 工程师模拟面试，我们到底聊了什么》](https://www.joyehuang.me/blog/20260512---agentmockinterview/post)（2026 年 5 月）——和另一位面试官 W 一起做的 80 分钟有偿模拟面试的全程复盘。有读者按里面的方法重新深挖项目之后，拿到了大厂 offer。
+- [《一个大二实习生的 Agent 开发面试修炼手册》](https://blog.bunnyjudy.dev/blog/20260309---agentinterview/post)（2026 年 3 月）——我自己求职过程的完整复盘。这篇是我后来开始接付费咨询的起点。
+- [《一场 1 小时 19 分钟的 Agent 工程师模拟面试，我们到底聊了什么》](https://blog.bunnyjudy.dev/blog/20260512---agentmockinterview/post)（2026 年 5 月）——和另一位面试官 W 一起做的 80 分钟有偿模拟面试的全程复盘。有读者按里面的方法重新深挖项目之后，拿到了大厂 offer。
 
 入职之后我一直在持续输出：
 
-- [《从实习面试到 Agent 开发：名词换得比模型还快，我为什么不焦虑》](https://www.joyehuang.me/blog/20260615---frominternshipinterviewstoagentengineering/post)（2026 年 6 月）——Prompt → Context → Harness → Loop，一年四拨名词接力背后不变的是什么。这份指南第三章的很多判断，在那篇里有更完整的展开。
-- 定期在粉丝群做 AI 技术分享（[Talks 系列](https://www.joyehuang.me/talks)），聊每两周的 Agent 新动向，讲稿和视频都会公开。
+- [《从实习面试到 Agent 开发：名词换得比模型还快，我为什么不焦虑》](https://blog.bunnyjudy.dev/blog/20260615---frominternshipinterviewstoagentengineering/post)（2026 年 6 月）——Prompt → Context → Harness → Loop，一年四拨名词接力背后不变的是什么。这份指南第三章的很多判断，在那篇里有更完整的展开。
+- 定期在粉丝群做 AI 技术分享（Talks 系列），聊每两周的 Agent 新动向，讲稿和视频都会公开。
 
-**开源项目（GitHub [@joyehuang](https://github.com/joyehuang)）：**
+**开源项目（GitHub [@554454545](https://github.com/554454545)）：**
 
 - [minimind-notes](https://github.com/joyehuang/minimind-notes)（140+ Stars）：从零构建 LLM 的详细注解教程。
 - [Learn-Open-Harness](https://github.com/joyehuang/Learn-Open-Harness)：OpenHarness 零基础交互式教程，带你读懂真实 Agent Harness 的实现。
@@ -274,7 +274,7 @@ Karpathy 在 2026 年 4 月提出了一个值得尝试的思路——[LLM Wiki](
 
 ### 3.1 "晚不晚"是一个伪命题
 
-之前做付费咨询时，我被问得最多的一个问题是："Joye，我现在才开始学是不是太晚了？"
+之前做付费咨询时，我被问得最多的一个问题是："Judy，我现在才开始学是不是太晚了？"
 
 我的标准回答是：**这条赛道上"老人"也才两三年经验。**
 
@@ -729,7 +729,7 @@ Agent 的成本远比传统应用高。一次复杂任务可能要几十次 LLM 
 
 ### 关于反馈
 
-如果你看完这份文档有任何意见、建议，或者发现错误，**非常希望你能告诉我**。这个项目已经开源在 [GitHub：joyehuang/blog](https://github.com/joyehuang/blog)，具体问题可以直接提 [Issue](https://github.com/joyehuang/blog/issues)，也可以通过网站留言或私信联系我。读者反馈是我持续修订这份指南最重要的依据。
+如果你看完这份文档有任何意见、建议，或者发现错误，**非常希望你能告诉我**。这个项目已经开源在 [GitHub：joyehuang/blog](https://github.com/554454545/blog)，具体问题可以直接提 [Issue](https://github.com/554454545/blog/issues)，也可以通过私信联系我。读者反馈是我持续修订这份指南最重要的依据。
 
 特别欢迎的反馈类型：
 
@@ -754,7 +754,7 @@ Agent 发展得很快，信息每天都在变，看到别人一天冒出十个�
 
 希望某天我们能在某家 AI 公司、某个开源项目、某个 GitHub Issue，或者直播间里相遇。到那时，记得告诉我——"这份文档我当年也读过。"
 
-—— **Joye**
+—— **Judy**
 
 _Updated: 2026-07-25 · v1.2_
 

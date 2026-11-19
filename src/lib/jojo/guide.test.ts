@@ -5,11 +5,11 @@ import { GUIDE_END, guideStops, STOP_ORDER } from './guide'
 describe('guide stops', () => {
   it('keeps page order, skips unknown, repeated and silent stops', () => {
     const s = guideStops(
-      ['blog', 'notes', 'talks', 'experience', 'blog', 'opensource', 'education', 'skills'],
+      ['blog', 'notes', 'experience', 'blog', 'opensource', 'education', 'skills'],
       'zh'
     )
-    expect(s.map((x) => x.id)).toEqual(['blog', 'notes', 'talks', 'experience'])
-    // the English home has no Talks, and nothing is said about them
+    expect(s.map((x) => x.id)).toEqual(['blog', 'notes', 'experience'])
+    // every stop has copy in both languages
     expect(guideStops(STOP_ORDER, 'en').map((x) => x.id)).toEqual(['blog', 'notes', 'experience'])
   })
 
@@ -68,12 +68,5 @@ describe('guide stops', () => {
         }
       }
     }
-    const live = guideStops(['talks'], 'zh')[0]
-    expect(live.bubbles.some((b) => b.link?.href.includes('bilibili.com'))).toBe(true)
-  })
-
-  it('ends with a way to swap friend links', () => {
-    expect(GUIDE_END.zh.links.href).toBe('/links#apply-links')
-    expect(GUIDE_END.en.links.href).toBe('/en/links#apply-links')
   })
 })

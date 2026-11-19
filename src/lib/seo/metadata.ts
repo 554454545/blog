@@ -2,33 +2,21 @@
 const sections: Record<string, [string, string, string, string]> = {
   '/': [
     '首页',
-    'Joye 的个人博客：记录 AI Agent、软件工程与学习实践，汇集技术文章、笔记和开源项目。',
+    'Judy 的个人博客：记录 AI Agent、软件工程与学习实践，汇集技术文章、笔记和开源项目。',
     'Home',
-    'Joye’s personal blog on AI agents, software engineering, and learning, with technical articles, notes, and open-source projects.'
+    'Judy’s personal blog on AI agents, software engineering, and learning, with technical articles, notes, and open-source projects.'
   ],
   '/about': [
     '关于我',
-    '了解 Joye：个人介绍、学习与开发经历，以及日常使用的开发工具、设计软件和设备。',
+    '了解 Judy：个人介绍、学习与开发经历，以及日常使用的开发工具、设计软件和设备。',
     'About',
-    'Meet Joye: personal background, learning and development experience, and the tools, design software, and equipment used day to day.'
-  ],
-  '/contact': [
-    '联系我',
-    '通过 QQ 群与 Joye 交流 Agent / AI Native 技术、学习心得和项目实践，参与每周线上分享，并了解联系前的说明。',
-    'Contact',
-    'Join Joye’s QQ community for Agent / AI Native discussions, learning notes, project retrospectives, and weekly talks. Read the guidelines before reaching out.'
+    'Meet Judy: personal background, learning and development experience, and the tools, design software, and equipment used day to day.'
   ],
   '/projects': [
     '项目',
-    'Joye 的开源项目、参与开发的产品和学习实践，包括 OpenHarness 教程、LLM 学习与开发工具。',
+    'Judy 的开源项目、参与开发的产品和学习实践，包括 OpenHarness 教程、LLM 学习与开发工具。',
     'Projects',
-    'Explore Joye’s open-source projects, product contributions, and learning projects, including OpenHarness tutorials, LLM studies, and developer tools.'
-  ],
-  '/links': [
-    '友情链接',
-    'Joye 的朋友与独立博客，发现不同作者的技术记录、生活分享和个人网站。',
-    'Links',
-    'Discover friends and independent blogs in Joye’s blogroll, with links to personal websites, technical writing, and everyday stories.'
+    'Explore Judy’s open-source projects, product contributions, and learning projects, including OpenHarness tutorials, LLM studies, and developer tools.'
   ],
   '/curated': [
     '精选阅读',
@@ -55,16 +43,16 @@ const sections: Record<string, [string, string, string, string]> = {
     'The original May 17, 2026 Agent onboarding guide, preserved as a historical snapshot with a link to the maintained version.'
   ],
   '/v2': [
-    'Joye · AI Agent 产品工程师 · V2',
-    'Joye 的 V2 个人主页，展示 AI Agent 项目、开源仓库与近期文章和笔记。',
-    'Joye — AI Agent Product Engineer · V2',
-    'Joye’s V2 portfolio with AI agent projects, open-source repositories, and recent articles and notes.'
+    'Judy · AI Agent 产品工程师 · V2',
+    'Judy 的 V2 个人主页，展示 AI Agent 项目、开源仓库与近期文章和笔记。',
+    'Judy — AI Agent Product Engineer · V2',
+    'Judy’s V2 portfolio with AI agent projects, open-source repositories, and recent articles and notes.'
   ],
   '/archives': [
     '文章归档',
-    '按年份回顾 Joye 已发布的博客文章，查找不同阶段的技术探索与学习记录。',
+    '按年份回顾 Judy 已发布的博客文章，查找不同阶段的技术探索与学习记录。',
     'Archives',
-    'Browse Joye’s published articles by year and revisit technical explorations and learning records.'
+    'Browse Judy’s published articles by year and revisit technical explorations and learning records.'
   ]
 }
 

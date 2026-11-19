@@ -25,9 +25,9 @@ import {
  * "Night tour": the page opens dark (the head gate paints the dark before the
  * first frame, so the blog never shows first). Jojo dozes in a small pool of
  * light, wakes up because someone is here, switches the light on, and walks
- * the visitor through who Joye is — each line lights what it talks about:
- * avatar and name, Melbourne, the projects (tags that pop out and then file
- * into About), what Joye cares about, the hobbies. Then it hands the page
+ * the visitor through who Judy is — each line lights what it talks about:
+ * avatar and name, Nanjing, the projects (tags that pop out and then file
+ * into About), what Judy cares about, the hobbies. Then it hands the page
  * over: the lights come up and Jojo hops into its seat.
  */
 
@@ -54,8 +54,8 @@ export interface TourProps {
 const COPY = {
   zh: {
     who: '咦，有人来了？',
-    hello: '欢迎！我是 Jojo，帮 Joye 看着这个小站。',
-    where: 'Joye 在墨尔本大学读书，',
+    hello: '欢迎！我是 Jojo，帮 Judy 看着这个小站。',
+    where: 'Judy 现在在 Nanjing，',
     work: '这几年一直在做 AI Agent 产品：',
     care: '在意 LLM 底层怎么运转，也在意产品能不能真的跑起来。',
     play: '不写代码的时候，弹琴、拉大提琴、拍照。',
@@ -63,8 +63,8 @@ const COPY = {
   },
   en: {
     who: "Huh — someone's here?",
-    hello: "Welcome! I'm Jojo. I look after Joye's little site.",
-    where: 'Joye studies at the University of Melbourne,',
+    hello: "Welcome! I'm Jojo. I look after Judy's little site.",
+    where: 'Judy is based in Nanjing,',
     work: 'and has spent the last few years building AI agent products:',
     care: 'curious how LLMs work underneath, and whether products truly hold up.',
     play: 'Away from the keyboard: piano, cello, photography.',
@@ -79,7 +79,6 @@ const PIECES: readonly PieceId[] = [
   'name',
   'chip0',
   'chip1',
-  'connect',
   'card',
   'about',
   'product'
@@ -128,7 +127,7 @@ export function planTour(layout: IntroLayout, zh: boolean): StoryPlan<TourProps>
   const lamp = who.t1 + 60
   r.move(lamp, lamp + 300, Z, 30)
   const dawn = lamp + 160
-  // the welcome is said on the empty stage; Joye appears as it ends
+  // the welcome is said on the empty stage; Judy appears as it ends
   t = dawn + 500
   const hello = say(text.hello)
   const lit: Partial<Record<PieceId, { t0: number; from?: Partial<PieceLook> }>> = {
@@ -152,7 +151,7 @@ export function planTour(layout: IntroLayout, zh: boolean): StoryPlan<TourProps>
   const play = say(text.play, 850)
   const bye = say(text.bye, 600)
   const up = bye.t0 + 200
-  ;(['header', 'chip1', 'connect', 'product'] as PieceId[]).forEach((id, i) => {
+  ;(['header', 'chip1', 'product'] as PieceId[]).forEach((id, i) => {
     if (!lit[id]) lit[id] = { t0: up + 90 + i * 90, from: { ty: 10 } }
   })
   const leap = bye.t1 + 60

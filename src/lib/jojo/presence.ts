@@ -2,7 +2,7 @@
  * When the dock shows. One Jojo per viewport: an in-flow Jojo (identity slot,
  * article end, 404, About) that is on screen wins over the dock, and the intro
  * wins over both. The dock also steps aside for text entry (focused editable,
- * soft keyboard) and, on phones, for the comment box.
+ * soft keyboard).
  */
 export interface PresenceInput {
   enabled: boolean
@@ -15,8 +15,6 @@ export interface PresenceInput {
   editingElsewhere: boolean
   /** visualViewport says a soft keyboard is covering the page */
   keyboardOpen: boolean
-  /** the comment area intersects the viewport */
-  commentsInView: boolean
   /** narrow viewport (≤ 640px) */
   compact: boolean
   /** the panel is open (the visitor is using the dock) */
@@ -35,7 +33,6 @@ export function dockPresence(p: PresenceInput): Presence {
   if (p.open) return 'shown'
   if (p.tucked) return 'tucked'
   if (p.anchorInView) return 'hidden'
-  if (p.compact && p.commentsInView) return 'hidden'
   return 'shown'
 }
 

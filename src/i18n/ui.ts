@@ -13,9 +13,7 @@ export const ui = {
     'nav.notes': 'Notes',
     'nav.curated': 'Curated',
     'nav.projects': 'Projects',
-    'nav.links': 'Links',
     'nav.about': 'About',
-    'nav.contact': 'Contact',
     'nav.search': 'Search',
     'nav.toggleMenu': 'Menu',
     'nav.toggleDarkMode': 'Dark Theme',
@@ -28,9 +26,7 @@ export const ui = {
     'nav.notes': 'Notes',
     'nav.curated': 'Curated',
     'nav.projects': 'Projects',
-    'nav.links': 'Links',
     'nav.about': 'About',
-    'nav.contact': 'Contact',
     'nav.search': 'Search',
     'nav.toggleMenu': 'Menu',
     'nav.toggleDarkMode': 'Dark Theme',
@@ -85,7 +81,7 @@ export function localizedPath(path: string, lang: Lang): string {
 export function hasEnAlternate(barePath: string): boolean {
   if (barePath === '/') return true
   if (
-    ['/about', '/projects', '/links', '/contact', '/search', '/curated', '/tags'].includes(barePath)
+    ['/about', '/projects', '/search', '/curated', '/tags'].includes(barePath)
   )
     return true
   // blog & notes: only the paginated list is mirrored under /en, not detail pages

@@ -6,4 +6,3 @@ if ! command -v bun >/dev/null 2>&1 || [ "$(bun --version)" != "1.3.10" ]; then
 fi
 sudo ln -sf "${HOME}/.bun/bin/bun" /usr/local/bin/bun
 bun install --frozen-lockfile
-bun install --cwd scripts/friend-links --frozen-lockfile

@@ -9,7 +9,6 @@ import { Footer } from 'astro-pure/components/basic'
 import type { SiteMeta } from 'astro-pure/types'
 import AnalyticsEvents from '@/components/AnalyticsEvents.astro'
 import BaseHead from '@/components/BaseHead.astro'
-import ViewCounter from '@/components/comment/ViewCounter.astro'
 import Header from '@/components/Header.astro'
 import JojoDock from '@/components/jojo/JojoDock'
 import JojoHead from '@/components/jojo/JojoHead.astro'
@@ -94,7 +93,6 @@ const jojoDockSvg = jojoLinks
     <Analytics />
     <AnalyticsEvents />
     <SpeedInsights />
-    <ViewCounter />
 
     {/* Set highlight color */}
     <style define:vars={{ highlightColor }}>

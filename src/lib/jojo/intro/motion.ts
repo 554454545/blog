@@ -17,7 +17,6 @@ export type PieceId =
   | 'name'
   | 'chip0'
   | 'chip1'
-  | 'connect'
   | 'card'
   | 'about'
   | 'product'
@@ -27,7 +26,6 @@ export const PIECE_IDS: readonly PieceId[] = [
   'name',
   'chip0',
   'chip1',
-  'connect',
   'card',
   'about',
   'product'

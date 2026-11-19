@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Intro · joye.init()</title>
+<title>Intro · judy.init()</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -79,14 +79,6 @@
   .name{font-family:var(--sans);font-weight:800;font-size:34px;letter-spacing:-.02em;margin:0}
   .meta{color:var(--muted);font-family:var(--mono);font-size:13px;display:flex;gap:14px}
   .tag{color:var(--cyan);font-style:italic;font-size:15px}
-  .pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;
-    border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);
-    font-size:14px;color:var(--fg);text-decoration:none;transition:.2s}
-  .pill:hover{border-color:rgba(125,211,252,.4);box-shadow:0 0 0 4px rgba(125,211,252,.08)}
-  .ping{position:relative;width:9px;height:9px}
-  .ping i{position:absolute;inset:0;border-radius:50%;background:var(--ok)}
-  .ping i:first-child{animation:ping 1.4s cubic-bezier(0,0,.2,1) infinite}
-  @keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
 
   /* per-element stagger for hero */
   .card>*{opacity:0;transform:translateY(14px)}
@@ -106,7 +98,7 @@
   .hint{position:fixed;bottom:20px;left:20px;font-family:var(--mono);font-size:12px;color:rgba(154,166,178,.5);z-index:20}
 
   @media (prefers-reduced-motion:reduce){
-    .sweep,.caret,.ping i:first-child{animation:none}
+    .sweep,.caret{animation:none}
   }
 </style>
 </head>
@@ -120,7 +112,7 @@
     <div class="term" id="term">
       <div class="chrome">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="ttl">joye@dev — ~/site — zsh</span>
+        <span class="ttl">judy@dev — ~/site — zsh</span>
       </div>
       <div class="body" id="out"></div>
     </div>
@@ -128,12 +120,11 @@
 
   <div class="hero" id="hero">
     <div class="card">
-      <img class="avatar" src="../../src/assets/avatar.png" alt="Joye"
+      <img class="avatar" src="../../src/assets/avatar.png" alt="Judy"
            onerror="this.style.background='conic-gradient(from 210deg,var(--steel),var(--cyan),var(--steel))';this.removeAttribute('src')" />
-      <h1 class="name">Joye</h1>
-      <div class="meta"><span>📍 Melbourne, Australia</span><span>· GitHub</span></div>
+      <h1 class="name">Judy</h1>
+      <div class="meta"><span>📍 Nanjing</span><span>· GitHub</span></div>
       <div class="tag">“Stay hungry, stay foolish.”</div>
-      <a class="pill" href="javascript:void 0"><span class="ping"><i></i><i></i></span> Connect Me!</a>
     </div>
   </div>
 
@@ -183,9 +174,9 @@ async function progress(label){
 async function run(){
   out.innerHTML=''; term.classList.remove('gone'); hero.classList.remove('show');
   await sleep(300);
-  await caretLine('$', './joye --init');
+  await caretLine('$', './judy --init');
   await sleep(120);
-  await progress('booting joye.dev');
+  await progress('booting judy.dev');
   await progress('loading design-system');
   line(`<span class="ok">[ ok ]</span> mounting personality module: <span style="color:var(--cyan)">JoJo</span> 🤖`);
   await sleep(160);
@@ -194,7 +185,7 @@ async function run(){
   await caretLine('$', 'whoami');
   const art = line('', 'art'); art.textContent = ART;
   await sleep(120);
-  line(`<span class="dim">Joye · Full-Stack & AI Agent Developer · Melbourne 🇦🇺</span>`);
+  line(`<span class="dim">Judy · Full-Stack & AI Agent Developer · Nanjing</span>`);
   await sleep(520);
   await caretLine('$', 'open ~/');
   await sleep(360);

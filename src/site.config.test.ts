@@ -2,10 +2,10 @@ import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, test } from 'bun:test'
 
-import config, { integ } from './site.config'
+import config from './site.config'
 
-const SITE_NAME = 'Joye Blog'
-const FORMER_SITE_NAME = ['Joye', 'Personal', 'Blog'].join(' ')
+const SITE_NAME = 'Judy Blog'
+const FORMER_SITE_NAME = ['Judy', 'Personal', 'Blog'].join(' ')
 const ROOT = join(import.meta.dir, '..')
 
 function textFiles(dir: string): string[] {
@@ -23,10 +23,8 @@ function textFiles(dir: string): string[] {
 }
 
 describe('site name', () => {
-  test('config title is Joye Blog for nav, titles, meta, OG, and RSS', () => {
+  test('config title is Judy Blog for nav, titles, meta, OG, and RSS', () => {
     expect(config.title).toBe(SITE_NAME)
-    const cardName = integ.links?.applyTip?.find((item) => item.name === 'Name')?.val
-    expect(cardName).toBe(SITE_NAME)
 
     const zhRss = readFileSync(join(import.meta.dir, 'pages/rss.xml.ts'), 'utf8')
     const enRss = readFileSync(join(import.meta.dir, 'pages/en/rss.xml.ts'), 'utf8')

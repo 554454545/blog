@@ -13,7 +13,6 @@ import { ArticleBottom, Copyright, Hero } from 'astro-pure/components/pages'
 import PageLayout from '@/layouts/ContentLayout.astro'
 import CopyrightEn from '@/components/blog/CopyrightEn.astro'
 import HeroEn from '@/components/blog/HeroEn.astro'
-import Comment from '@/components/comment/Comment.astro'
 import JojoArticleEnd from '@/components/jojo/JojoArticleEnd.astro'
 import JsonLd from '@/components/JsonLd.astro'
 import TableOfContents from '@/components/navigation/TableOfContents.astro'
@@ -126,7 +125,7 @@ const breadcrumbLd = {
     {/* Copyright */}
     {lang === 'en' ? <CopyrightEn {data} /> : <Copyright {data} />}
     {/* Jojo: end-of-post card (static, one short reaction) */}
-    <JojoArticleEnd lang={lang === 'en' ? 'en' : 'zh'} comments={!!data.comment} />
+    <JojoArticleEnd lang={lang === 'en' ? 'en' : 'zh'} />
     {/* Article recommend */}
     {
       recommend && (
@@ -137,8 +136,6 @@ const breadcrumbLd = {
         />
       )
     }
-    {/* Comments */}
-    {data.comment && <Comment class='mt-6' />}
   </Fragment>
 
   <slot name='bottom-sidebar' slot='bottom-sidebar' />

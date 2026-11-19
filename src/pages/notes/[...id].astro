@@ -5,7 +5,6 @@ import { contentLastModified } from '@/lib/seo/lastmod'
 
 import { Button, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/ContentLayout.astro'
-import PageInfo from '@/components/comment/PageInfo.astro'
 import JsonLd from '@/components/JsonLd.astro'
 
 export const prerender = true
@@ -139,7 +138,6 @@ const breadcrumbLd = {
 
     {description && <p class='text-lg text-muted-foreground'>{description}</p>}
 
-    <PageInfo class='mt-2 italic' path={`/notes/${entry.id}`} />
 
     <div class='mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground'>
       <div class='flex items-center gap-2'>

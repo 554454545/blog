@@ -4,18 +4,13 @@ description: 'Prompt -> Context -> Harness -> Loop: terms change faster than mod
 publishDate: 2026-06-15 00:00:00
 language: en
 translationKey: '20260615---frominternshipinterviewstoagentengineering/post'
-ogImage: '/talks/2026-from-interview-to-agent/og-slide-cover.png'
 tags: ['Agent', 'AI engineering', 'career', 'learning', 'Loop Engineering', 'Harness']
 ---
-
-import TalkEpisodeCard from '@/components/blog/TalkEpisodeCard.astro'
-import TalkSlideFigure from '@/components/blog/TalkSlideFigure.astro'
 
 Last week I gave a technical sharing session in my follower group. The video is already out, but some people prefer reading, so I turned it into this post. The structure maps one-to-one to the talk, just rewritten from spoken notes into an article, with a few arguments filled in more fully. All links referenced in the post are collected at the end.
 
 The talk started from an offhand observation: the words around "Agent development" keep changing, and job descriptions on Boss Zhipin update painfully fast. What I wanted to discuss was this: when the field iterates this quickly, whether you are looking for an internship or already building agents, **what mindset should you use to keep up with it?**
 
-<TalkEpisodeCard />
 
 **TL;DR**
 
@@ -46,14 +41,6 @@ The timeline makes the compression obvious: Prompt to Context took three or four
 ### The pattern: the engineering target keeps expanding outward
 
 Put these waves together and one thing becomes clear: **the model basically stays the same; what changes is the layer you operate on.**
-
-<TalkSlideFigure
-  src='/talks/2026-from-interview-to-agent/engineering-scope-crop.png'
-  alt='The engineering target keeps expanding outward: Prompt, Context, Harness, and Loop around the model'
-  label='Figure 1'
-  caption='The engineering target keeps expanding outward: Prompt -> Context -> Harness -> Loop.'
-  href='/talks/2026-from-interview-to-agent.html'
-/>
 
 In one line: **words -> context -> environment -> mechanism.** The names change, but the work is the same: build a **system** outward around the model core. In other words, the history of these terms is a history of the system boundary expanding.
 
@@ -130,14 +117,6 @@ When I learn a new field, I ask AI to recommend a few good blogs, not to lecture
 
 Instead of reading the information stream all day, let your agent act as a filter. You only receive the small set worth reading:
 
-<TalkSlideFigure
-  src='/talks/2026-from-interview-to-agent/agent-legwork-crop.png'
-  alt='Manual labor goes to agents: the information flood is crawled, filtered, and checked against codebases by a personal agent'
-  label='Figure 2'
-  caption='Give the manual labor to agents; you only read the filtered subset.'
-  href='/talks/2026-from-interview-to-agent.html'
-/>
-
 One common pitfall: if you ask an LLM to "recommend a few papers," it may invent titles and links. The safer approach is to connect it to **real, trusted tools** - for example, an arXiv skill that extracts data from the source site. Then the results are real links and real metadata, not model imagination. After collecting candidates, add a verification step: have the agent confirm that each link is reachable and that the title and abstract match before summarizing and filtering.
 
 Another simple heuristic: **to decide whether a paper is worth tracking, first check whether it has an open-source repo.** Crude, but useful.
@@ -147,14 +126,6 @@ To be clear, not everything should be handed to AI. Precisely because AI exists,
 ### Everyone should have a personal agent with long-term memory
 
 If you have used OpenClaw or Hermes Agent, you know the shape: a persistent agent that you talk to through WhatsApp or Telegram. The architecture roughly looks like this:
-
-<TalkSlideFigure
-  src='/talks/2026-from-interview-to-agent/personal-agent-crop.png'
-  alt='A persistent personal agent connected to WhatsApp, Telegram, Slack, Discord, iMessage, and Signal, with memory, skills, and heartbeat'
-  label='Figure 3'
-  caption='A persistent agent turns your apps into command surfaces.'
-  href='/talks/2026-from-interview-to-agent.html'
-/>
 
 It is a persistent gateway running on your machine, turning the apps you already use into command surfaces. It has **persistent memory**, hundreds of **skills**, and a **heartbeat** that wakes itself up on a schedule to help you follow up on email and calendar items.
 
@@ -200,14 +171,6 @@ The report also says something I strongly agree with, and it matches what Fan Li
 
 So how do you become proactive? **Make your learning path and traces public, and turn them into a loop:**
 
-<TalkSlideFigure
-  src='/talks/2026-from-interview-to-agent/growth-loop-crop.png'
-  alt='A growth loop for public learning traces: build something small, hit real problems, distill it into writing, publish it, then build the next thing'
-  label='Figure 4'
-  caption='Make your learning trail public and turn it into a loop.'
-  href='/talks/2026-from-interview-to-agent.html'
-/>
-
 Build a small thing first. You will hit real problems. Distill those problems into articles, skills, or notes, then publish them - on a blog, in videos, on social media, or simply in a community group. After publishing, you either receive feedback or start the next thing, and you return to the beginning.
 
 This is the growth-system version of the main theme. It has the same shape as your personal agent, except it runs on you. The key is: **do not only output content; output your judgment, pitfalls, and path - your context.** Publishing also forces clarity. It is like solving a science problem: if you really understand it, you should be able to explain it to someone else. This talk itself is me forcing myself to distill less than a year of experience into something public.
@@ -244,9 +207,9 @@ So "do evaluation" is a very practical entry point. I have said this repeatedly 
 
 Terms will keep changing. But technically and personally, what you need is the same thing: **a system that keeps running.** Technically, it is a persistent agent with memory, skills, and a heartbeat. Personally, it is a loop of "build something -> hit a real problem -> distill -> publish -> build the next thing." Same shape, two systems. Once you build it, it helps you fight the noise that never stops changing.
 
-Terms are noise. Systems are signal. That is the talk. If you have questions, come chat in the group or comments.
+Terms are noise. Systems are signal. That is the talk. If you have questions, come chat in the group.
 
-- Joye · [joyehuang.me](https://joyehuang.me)
+- Judy · [blog.bunnyjudy.dev](https://blog.bunnyjudy.dev)
 
 ---
 

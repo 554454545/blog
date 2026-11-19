@@ -1,7 +1,6 @@
 ---
 import { Button } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
-import Comment from '@/components/comment/Comment.astro'
 import AgentTeamsBoard from '@/components/agent-teams/AgentTeamsBoard.astro'
 import { activity } from '@/data/agent-teams'
 
@@ -12,11 +11,10 @@ export const prerender = true
 <PageLayout
   meta={{
     title: `${activity.name} · ${activity.title} · ${activity.subtitle}`,
-    description: '第一届 Joye 粉丝 Agent 比赛已于 10 月 4 日办完线上展示。这里收录各赛道的参赛队伍和项目。'
+    description: '第一届 Judy 粉丝 Agent 比赛已于 10 月 4 日办完线上展示。这里收录各赛道的参赛队伍和项目。'
   }}
   highlightColor='#5B8DB8'
 >
   <Button title='Back' href='/' style='back' />
   <AgentTeamsBoard />
-  <Comment class='mt-10' path='/agent-teams' />
 </PageLayout>

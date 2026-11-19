@@ -120,7 +120,7 @@ function Column({ variant }: { variant: (typeof VARIANTS)[number] }) {
       <span className={`is-tag is-tag--${variant.tone}`}>{variant.tag}</span>
       <div className='is-frame'>
         <div className='is-chrome' aria-hidden='true'>
-          joye.
+          judy.
           <span className='is-chrome-nav'>
             <span />
             <span />

@@ -287,15 +287,6 @@ describe('draft publication policy', () => {
         expect(published({ data: { draft: true } })).toBe(false)
       }
   })
-  test('Contact metadata does not advertise discontinued services in either language', () => {
-    for (const path of ['/contact', '/en/contact']) {
-      const description = sectionMetadata(path)!.description
-      expect(description).toContain('QQ')
-      expect(description).not.toMatch(
-        /付费|模拟面试|简历辅导|微信|paid|consulting|mock interview|coaching|WeChat/i
-      )
-    }
-  })
 })
 
 test('fingerprints ignore generated IDs and temporary counts but retain content changes', () => {

@@ -340,10 +340,8 @@ class V3Session extends HTMLElement {
       blog: `${prefix}/blog`,
       notes: `${prefix}/notes`,
       about: `${prefix}/about`,
-      contact: `${prefix}/contact`,
-      github: 'https://github.com/joyehuang'
+      github: 'https://github.com/554454545'
     }
-    if (!isEn) routes.talks = '/talks'
 
     const say = (line: string, ok: boolean) => {
       echo.textContent = line
@@ -366,8 +364,8 @@ class V3Session extends HTMLElement {
       } else {
         say(
           isEn
-            ? `command not found: ${raw} — try 'blog', 'notes', 'about', 'contact' or 'github'`
-            : `command not found: ${raw} — 试试 'blog'、'notes'、'about'、'contact' 或 'github'`,
+            ? `command not found: ${raw} — try 'blog', 'notes', 'about' or 'github'`
+            : `command not found: ${raw} — 试试 'blog'、'notes'、'about' 或 'github'`,
           false
         )
       }

@@ -22,7 +22,7 @@ export type AgentTeam = {
 export const activity = {
   /** 比赛的英文名 / 品牌名 */
   name: 'Summer of Agents',
-  title: '第一届 Joye 粉丝 Agent 比赛',
+  title: '第一届 Judy 粉丝 Agent 比赛',
   subtitle: '已圆满结束',
   tagline:
     '10 月 4 日晚上的线上展示已经办完，谢谢每一位上来展示的同学。下面是各赛道的参赛队伍和项目，获奖作品和评审时聊到的问题写在复盘文章里。',

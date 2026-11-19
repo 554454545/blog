@@ -14,9 +14,9 @@ import { buildSiteFs } from '@/components/terminal/fs/server'
  * Companion skill: see github.com/joyehuang/skills/explore-site (TODO).
  */
 
-const SITE_URL = 'https://joyehuang.me'
+const SITE_URL = 'https://blog.bunnyjudy.dev'
 
-const INSTRUCTIONS = `You're reading a structured map of Joye Huang's personal site.
+const INSTRUCTIONS = `You're reading a structured map of Judy's personal site.
 
 Quick start:
   - Read the "instructions" field (this) and "description" field for context.
@@ -28,11 +28,11 @@ Quick start:
   - Use "content_hash" and "updated_at" on each entry for incremental sync.
   - Resolve link nodes via their "href" field.
 
-Suggested first reads: /about, /now, /README. Then ls /blog, /notes,
-/curated and /talks for knowledge entries.
+Suggested first reads: /about, /now, /README. Then ls /blog, /notes
+and /curated for knowledge entries.
 
 If you're a human exploring this URL: there's a richer interactive
-version at https://joyehuang.me — press \` (backtick) to open dev mode.`
+version at https://blog.bunnyjudy.dev — press \` (backtick) to open dev mode.`
 
 export const GET: APIRoute = async () => {
   const tree = await buildSiteFs()
@@ -42,11 +42,11 @@ export const GET: APIRoute = async () => {
     name: ROOT_LABEL,
     site: SITE_URL,
     description:
-      'Joye Huang — frontend / full-stack dev based in Melbourne. ' +
+      'Judy — frontend / full-stack dev based in Nanjing. ' +
       'Currently AIGC full-stack intern @ Tezign, building agent-first ' +
       'web UIs and writing teardowns of agent harnesses (Claude Code, ' +
       'OpenHarness). The site is a pseudo-FS — posts, notes, curated reads, ' +
-      'talks and contact links live at paths you can `cat` or fetch.',
+      'and links live at paths you can `cat` or fetch.',
     instructions: INSTRUCTIONS,
     tree,
     endpoints: {
@@ -54,7 +54,7 @@ export const GET: APIRoute = async () => {
         url: `${SITE_URL}/api/knowledge/content/<collection>/<id>`,
         method: 'GET',
         format: 'json',
-        collections: ['blog', 'blog_en', 'notes', 'notes_en', 'curated', 'talks'],
+        collections: ['blog', 'blog_en', 'notes', 'notes_en', 'curated'],
         fields: ['markdown', 'html', 'headings', 'frontmatter', 'content_hash', 'updated_at'],
         note:
           'Always use the `endpoint` field from a node directly — do not ' +
@@ -84,7 +84,7 @@ export const GET: APIRoute = async () => {
     },
     links: {
       site: SITE_URL,
-      github: 'https://github.com/joyehuang',
+      github: 'https://github.com/554454545',
       rss: `${SITE_URL}/rss.xml`,
       sitemap: `${SITE_URL}/sitemap-index.xml`
     },

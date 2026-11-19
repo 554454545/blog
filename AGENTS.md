@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This Astro 5 blog uses TypeScript and Bun. Routes live in `src/pages/`; reusable layouts and UI belong in `src/layouts/` and `src/components/`. Put shared logic in `src/lib/`, structured data in `src/data/`, and global configuration in `src/site.config.ts`. Articles, notes, and talks are stored under `src/content/`; bilingual posts use `post.mdx` and `post.en.mdx` in the same dated folder. Static files go in `public/`, imported assets in `src/assets/`, and visual experiments in `demos/`.
+This Astro 5 blog uses TypeScript and Bun. Routes live in `src/pages/`; reusable layouts and UI belong in `src/layouts/` and `src/components/`. Put shared logic in `src/lib/`, structured data in `src/data/`, and global configuration in `src/site.config.ts`. Articles and notes are stored under `src/content/`; bilingual posts use `post.mdx` and `post.en.mdx` in the same dated folder. Static files go in `public/`, imported assets in `src/assets/`, and visual experiments in `demos/`.
 
 ## Build, Test, and Development Commands
 
@@ -36,8 +36,7 @@ Pull requests should explain the problem and solution, link relevant issues, lis
 
 ## Cursor Cloud specific instructions
 
-- The Cloud Agent install pins Bun 1.3.10 on `/usr/local/bin` (login shells skip `~/.bashrc`) and runs `bun install --frozen-lockfile` plus `bun install --cwd scripts/friend-links --frozen-lockfile`.
+- The Cloud Agent install pins Bun 1.3.10 on `/usr/local/bin` (login shells skip `~/.bashrc`) and runs `bun install --frozen-lockfile`.
 - `start` runs `bun run dev -- --host 0.0.0.0 --port 4321`. On-demand routes such as `/api/search.json` need this dev server. `bun run preview:local` serves a production build on port 4323.
 - Jojo is optional. The site builds with the Jojo-off fallback when `joyehuang/jojo-friends` is not readable. `bun run jojo:pull` needs a GitHub login that can download that private release.
-- `WALINE_DATABASE_URL`, `DATABASE_URL`, and `GITHUB_TOKEN` are optional. Without them the homepage still renders, page views stay `—`, and `/api/github-contributions` returns 500.
-- `scripts/friend-links` merge tests spawn `git` and inherit global config. With `commit.gpgsign=true` they can exceed Bun's 5s timeout. Run them with commit signing off: `GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=commit.gpgsign GIT_CONFIG_VALUE_0=false bun test scripts/friend-links`.
+- `DATABASE_URL` and `GITHUB_TOKEN` are optional. Without them the homepage still renders and `/api/github-contributions` returns 500.

@@ -27,8 +27,8 @@ interface Props {
 
 /**
  * Scheme A — the identity slot: Jojo seated at the avatar's bottom-right, in
- * the document flow with the avatar (never fixed, so it cannot cover text,
- * comments or the keyboard). Still by default; it moves only when
+ * the document flow with the avatar (never fixed, so it cannot cover text
+ * or the keyboard). Still by default; it moves only when
  *  - the intro lands here (happy, then calm),
  *  - a first visit had no intro (a one-time greeting, ≤ 1.2 s),
  *  - the visitor pokes it (click / Enter / Space), or hovers the hero with a

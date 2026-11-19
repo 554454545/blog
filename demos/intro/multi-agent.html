@@ -34,14 +34,6 @@
   .name{font-weight:800;font-size:34px;letter-spacing:-.02em;margin:0}
   .meta{color:var(--muted);font-family:var(--mono);font-size:13px;display:flex;gap:14px}
   .ital{color:var(--cyan);font-style:italic;font-size:15px}
-  .pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;
-    border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);font-size:14px;
-    color:var(--fg);text-decoration:none;transition:.2s}
-  .pill:hover{border-color:rgba(125,211,252,.4);box-shadow:0 0 0 4px rgba(125,211,252,.08)}
-  .ping{position:relative;width:9px;height:9px}
-  .ping i{position:absolute;inset:0;border-radius:50%;background:var(--ok)}
-  .ping i:first-child{animation:ping 1.4s cubic-bezier(0,0,.2,1) infinite}
-  @keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
   .card>*{opacity:0;transform:translateY(14px)}
   .hero.show .card>*{animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
   .hero.show .card>*:nth-child(1){animation-delay:.05s}
@@ -64,11 +56,10 @@
 
   <div class="hero" id="hero">
     <div class="card">
-      <img class="avatar" src="../../src/assets/avatar.png" alt="Joye" onerror="this.removeAttribute('src')" />
-      <h1 class="name">Joye</h1>
-      <div class="meta"><span>📍 Melbourne, Australia</span><span>· GitHub</span></div>
+      <img class="avatar" src="../../src/assets/avatar.png" alt="Judy" onerror="this.removeAttribute('src')" />
+      <h1 class="name">Judy</h1>
+      <div class="meta"><span>📍 Nanjing</span><span>· GitHub</span></div>
       <div class="ital">“Stay hungry, stay foolish.”</div>
-      <a class="pill" href="javascript:void 0"><span class="ping"><i></i><i></i></span> Connect Me!</a>
     </div>
   </div>
 
@@ -82,7 +73,7 @@ const cap = document.getElementById('cap');
 const hero = document.getElementById('hero');
 const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
 let W,H,DPR, raf, t0=0;
-let nodes=[], edges=[], messages=[], schedule=[], schedPtr=0, parts=[], joyePts=[], converged=false, heroShown=false;
+let nodes=[], edges=[], messages=[], schedule=[], schedPtr=0, parts=[], judyPts=[], converged=false, heroShown=false;
 
 const ROLES = ['planner','router','search','code','memory','judge','tool','writer'];
 
@@ -128,7 +119,7 @@ function buildSchedule(){
   schedule.sort((p,q)=>p.t-q.t);
 }
 
-function sampleJOYE(){
+function sampleJUDY(){
   if(!W||!H) return [];
   const off=document.createElement('canvas'); off.width=W; off.height=H;
   const o=off.getContext('2d');
@@ -136,10 +127,10 @@ function sampleJOYE(){
   const tracking=0.18; let size=Math.min(H*0.4, W*0.34);
   const setFont=()=>o.font=`700 ${size}px Inter, system-ui, sans-serif`;
   setFont();
-  const adv=()=>{ let w=0; for(const ch of 'JOYE') w+=o.measureText(ch).width+size*tracking; return w-size*tracking; };
+  const adv=()=>{ let w=0; for(const ch of 'JUDY') w+=o.measureText(ch).width+size*tracking; return w-size*tracking; };
   if(adv()>W*0.74){ size*=W*0.74/adv(); setFont(); }
   let x=(W-adv())/2; const y=H*0.45;
-  for(const ch of 'JOYE'){ o.fillText(ch,x,y); x+=o.measureText(ch).width+size*tracking; }
+  for(const ch of 'JUDY'){ o.fillText(ch,x,y); x+=o.measureText(ch).width+size*tracking; }
   const d=o.getImageData(0,0,W,H).data; const gap=Math.max(5,Math.round(7*DPR)); const pts=[];
   for(let yy=0;yy<H;yy+=gap) for(let xx=0;xx<W;xx+=gap) if(d[(yy*W+xx)*4+3]>128) pts.push({x:xx,y:yy});
   return pts;
@@ -156,11 +147,11 @@ function nodeColor(n, a){
 
 function converge(){
   converged=true;
-  joyePts=sampleJOYE();
+  judyPts=sampleJUDY();
   parts=[];
-  for(let i=0;i<joyePts.length;i++){
+  for(let i=0;i<judyPts.length;i++){
     const src=nodes[(Math.random()*nodes.length)|0];
-    parts.push({ x:src.x, y:src.y, tx:joyePts[i].x, ty:joyePts[i].y,
+    parts.push({ x:src.x, y:src.y, tx:judyPts[i].x, ty:judyPts[i].y,
       r:(Math.random()*0.9+0.7)*DPR, k:0, hue:Math.random() });
   }
   cap.classList.remove('show');
@@ -225,7 +216,7 @@ function frame(ts){
       ctx.fillText(n.label, n.x, n.y+rr+11*DPR);
     }
   } else {
-    // convergence: nodes fade, particles assemble JOYE
+    // convergence: nodes fade, particles assemble JUDY
     const since=(ts-t0)/1000-2.6;
     const nodeA=Math.max(0,1-since*1.6);
     if(nodeA>0.02){

@@ -5,8 +5,8 @@
 ## 文件说明
 
 - `index.html`: 四个主要方案的对比画廊。
-- `constellation.html`: 动画一，粒子聚合成 `JOYE`。
-- `terminal-boot.html`: 动画二，终端启动 `joye.init()`。
+- `constellation.html`: 动画一，粒子聚合成 `JUDY`。
+- `terminal-boot.html`: 动画二，终端启动 `judy.init()`。
 - `kinetic-type.html`: 动画三，动态排版。
 - `multi-agent.html`: 动画四，Multi-Agent 编排。
 - `agent-story.html` / `agent-diffusion.html` / `constellation-emit.html`: 后续扩展实验，暂时只作为素材池保留。

@@ -42,7 +42,7 @@ Commit at natural checkpoints — even small changes. Don't batch unrelated work
 - Jojo is a private package; run `bun run jojo:pull` once (uses your `gh` login) so local builds show the real Jojo instead of the Jojo-off fallback.
 - **Vercel Preview builds are opt-in.** The project builds on a fixed Turbo machine and Vercel can't pick a machine per environment, so `scripts/vercel/ignore-build.sh` skips every non-production push unless the commit message contains `[preview]`. Only ask for one when something can't be checked locally (API routes, Vercel-only behaviour, a link to share).
 
-Name feature branches with a conventional type prefix: `feat/`, `fix/`, `chore/`, `docs/`, `refactor/` followed by a short kebab-case description (e.g. `feat/talks-week3-preview`).
+Name feature branches with a conventional type prefix: `feat/`, `fix/`, `chore/`, `docs/`, `refactor/` followed by a short kebab-case description (e.g. `feat/notes-search-filter`).
 
 Guidelines:
 

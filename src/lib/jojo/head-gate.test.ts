@@ -29,7 +29,7 @@ function fakeWindow(o: {
   const session = { ...(o.session ?? {}) }
   const w = {
     URL,
-    location: { href: o.href ?? 'https://www.joyehuang.me/' },
+    location: { href: o.href ?? 'https://blog.bunnyjudy.dev/' },
     localStorage: mk({ ...(o.stored ?? {}) }, o.storageThrows),
     sessionStorage: mk(session),
     matchMedia: (q: string) => ({ matches: !!o.reduce && q.includes('reduce') }),

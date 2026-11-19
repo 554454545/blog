@@ -37,21 +37,17 @@ const notes = (await getCollection('notesEn'))
     kind: note.data.type
   }))
 
-const talkCount = (await getCollection('talks')).filter(
-  (talk) => !talk.data.draft && talk.data.status === 'published'
-).length
-
 const repos = await getPortfolioRepos('en')
 ---
 
 <PageLayout
   meta={{
-    title: 'Joye — AI Agent & Full-Stack Developer · V3',
+    title: 'Judy — AI Agent & Full-Stack Developer · V3',
     description:
-      'CS undergrad in Melbourne building AI agents and full-stack products — open source, internships, and 100+ public interview debriefs.',
+      'Based in Nanjing, building AI agents and full-stack products — open source, internships, and 100+ public interview debriefs.',
     noindex: true
   }}
   chrome={false}
 >
-  <V3Home locale='en' {posts} {notes} {repos} postCount={allPosts.length} {talkCount} />
+  <V3Home locale='en' {posts} {notes} {repos} postCount={allPosts.length} />
 </PageLayout>

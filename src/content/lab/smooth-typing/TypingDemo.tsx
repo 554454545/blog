@@ -19,7 +19,7 @@ import { useEffect, useRef, useState, type ComponentType, type CSSProperties } f
 import { loadJojoRuntime } from '@/components/jojo/LazyJojo'
 
 const LINE =
-  '嗨，我是 Jojo，欢迎来到 Joye 的博客。这段话是一个字一个字打出来的：先看左边，每个字都是一下子跳出来的；再看右边，每个字都是慢慢浮现出来的。把上面的速度往快调一点，或者往慢调一点，两边的差别会更明显。'
+  '嗨，我是 Jojo，欢迎来到 Judy 的博客。这段话是一个字一个字打出来的：先看左边，每个字都是一下子跳出来的；再看右边，每个字都是慢慢浮现出来的。把上面的速度往快调一点，或者往慢调一点，两边的差别会更明显。'
 const CHARS = Array.from(LINE)
 /** characters per second: the site's tour types one every ~42ms */
 const SITE_CPS = 24

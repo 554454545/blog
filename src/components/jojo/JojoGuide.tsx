@@ -553,9 +553,6 @@ export default function JojoGuide({
         <div className='jojo-guide-actions'>
           {phase.kind === 'end' ? (
             <>
-              <a className='jojo-guide-link' href={GUIDE_END[lang].links.href}>
-                {GUIDE_END[lang].links.label}
-              </a>
               <button type='button' onClick={() => leave('seat')}>
                 {t.top}
               </button>

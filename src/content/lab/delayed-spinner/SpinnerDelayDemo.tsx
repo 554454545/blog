@@ -166,7 +166,7 @@ function Column({
         <div className='ds-form'>
           <div className='ds-field'>
             <span className='ds-field-label'>昵称</span>
-            <span className='ds-input'>Joye</span>
+            <span className='ds-input'>Judy</span>
           </div>
           <div className='ds-field'>
             <span className='ds-field-label'>简介</span>

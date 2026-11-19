@@ -11,7 +11,7 @@ import {
 const team = {
   title: '游戏 Agent（杀戮尖塔 2）',
   tags: ['game', 'planning'],
-  members: [{ name: 'Joye' }, { name: '摸鱼选手' }]
+  members: [{ name: 'Judy' }, { name: '摸鱼选手' }]
 }
 
 describe('队伍搜索', () => {
@@ -22,7 +22,7 @@ describe('队伍搜索', () => {
   test('支持队名、标签和成员昵称', () => {
     expect(teamMatchesSearch(team, '杀戮尖塔')).toBe(true)
     expect(teamMatchesSearch(team, '#PLANNING')).toBe(true)
-    expect(teamMatchesSearch(team, 'joye')).toBe(true)
+    expect(teamMatchesSearch(team, 'judy')).toBe(true)
     expect(teamMatchesSearch(team, '摸鱼')).toBe(true)
     expect(teamMatchesSearch(team, '不存在')).toBe(false)
   })
@@ -43,9 +43,9 @@ describe('响应式分页', () => {
 
 describe('GitHub 仓库链接', () => {
   test('归一化仓库首页链接', () => {
-    expect(normalizeGithubRepoUrl('https://www.github.com/joyehuang/blog.git?tab=readme')).toEqual({
+    expect(normalizeGithubRepoUrl('https://www.github.com/554454545/blog.git?tab=readme')).toEqual({
       ok: true,
-      value: 'https://github.com/joyehuang/blog'
+      value: 'https://github.com/554454545/blog'
     })
   })
 

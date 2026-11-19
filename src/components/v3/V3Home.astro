@@ -26,10 +26,9 @@ interface Props {
   notes: FeedItem[]
   repos: RepoItem[]
   postCount: number
-  talkCount: number
 }
 
-const { locale, posts, notes, repos, postCount, talkCount } = Astro.props
+const { locale, posts, notes, repos, postCount } = Astro.props
 const isEn = locale === 'en'
 const prefix = isEn ? '/en' : ''
 
@@ -41,23 +40,21 @@ const copy = isEn
   ? {
       session: 'k3 · session #2026-07',
       blog: 'blog',
-      contact: 'contact',
-      prompt: 'Tell me about Joye. Skip the résumé — give me the real story.',
-      thoughtContext: `▸ context: joyehuang.me → ${postCount} essays · 4 teams · ${ownStars}★ · 100+ interviews`,
+      prompt: 'Tell me about Judy. Skip the résumé — give me the real story.',
+      thoughtContext: `▸ context: blog.bunnyjudy.dev → ${postCount} essays · 4 teams · ${ownStars}★ · 100+ interviews`,
       role: 'AI Agent & Full-Stack Developer',
-      bio: 'CS undergrad at the University of Melbourne. I care about how LLMs work under the hood — and whether the product actually ships.',
+      bio: 'I care about how LLMs work under the hood — and whether the product actually ships.',
       motto: 'Build fast, learn faster.',
       photoArtifact: 'artifact · profile.png',
       photoStamp: 'developed ✓',
-      photoCaption: 'Joye · Melbourne · open to intern / full-time roles',
-      thoughtNumbers: '▸ run: numbers.scan() → 5 rows',
+      photoCaption: 'Judy · Nanjing · open to intern / full-time roles',
+      thoughtNumbers: '▸ run: numbers.scan() → 4 rows',
       readoutArtifact: 'artifact · query result',
       stats: [
         ['agent-role interviews, debriefed', 'every lesson published, not hoarded'],
         ['AI teams, hands-on', 'Adastra Labs · Tezign · AIXCut · fAIshion'],
         ['stars on original repos', 'Learn-Open-Harness · minimind-notes'],
-        ['bilingual long-form essays', 'every essay ships in zh + en'],
-        ['community talks hosted', 'Summer of Agents · fan-group sessions']
+        ['bilingual long-form essays', 'every essay ships in zh + en']
       ],
       commentary:
         'Side note — after those 100+ interviews, his takeaway: an interview is not an exam, it’s a two-way street.',
@@ -66,39 +63,37 @@ const copy = isEn
       thoughtWriting: '▸ list: writing → essays & notes',
       writingArtifact: 'artifact · index',
       quote: ['Knowledge is the foundation;', 'context', ' is the moat.'],
-      quoteCite: '—— Joye, Talk Ep.2',
+      quoteCite: '—— Judy',
       handoffLines: [
         'That’s the story.',
         'He also says: “Don’t chase every buzzword — build a system that keeps running.” I agree.',
         'The session is yours now:'
       ],
-      inputPlaceholder: "try 'blog', 'notes', 'about', 'contact' or 'github' …",
+      inputPlaceholder: "try 'blog', 'notes', 'about' or 'github' …",
       inputAria: 'Type a command to navigate',
       credit: 'designed & built with kimi k3',
-      copyright: '© 2026 Joye · Melbourne',
+      copyright: '© 2026 Judy · Nanjing',
       backTop: '↑ scroll back to replay the session',
       cue: 'scroll — the session continues'
     }
   : {
       session: 'k3 · session #2026-07',
       blog: '博客',
-      contact: '联系',
-      prompt: '介绍一下 joye。别念简历，讲点真的。',
-      thoughtContext: `▸ context: joyehuang.me → ${postCount} essays · 4 teams · ${ownStars}★ · 100+ interviews`,
+      prompt: '介绍一下 judy。别念简历，讲点真的。',
+      thoughtContext: `▸ context: blog.bunnyjudy.dev → ${postCount} essays · 4 teams · ${ownStars}★ · 100+ interviews`,
       role: 'AI Agent & Full-Stack Developer',
-      bio: '墨尔本大学在读。在意 LLM 的底层机制，也在意产品能不能真正跑起来。',
+      bio: '在意 LLM 的底层机制，也在意产品能不能真正跑起来。',
       motto: 'Build fast, learn faster.',
       photoArtifact: 'artifact · profile.png',
       photoStamp: 'developed ✓',
-      photoCaption: 'Joye · 墨尔本 · 开放实习/全职机会',
-      thoughtNumbers: '▸ run: numbers.scan() → 5 rows',
+      photoCaption: 'Judy · Nanjing · 开放实习/全职机会',
+      thoughtNumbers: '▸ run: numbers.scan() → 4 rows',
       readoutArtifact: 'artifact · query result',
       stats: [
         ['场 Agent 岗位面试复盘', '经验全部公开，不私藏'],
         ['段 AI 团队实战', 'Adastra Labs · Tezign · AIXCut · fAIshion'],
         ['独立开源项目 Stars', 'Learn-Open-Harness · minimind-notes'],
-        ['篇双语长文', '每篇都有中英两个版本'],
-        ['场社区分享会', 'Summer of Agents · 粉丝群分享']
+        ['篇双语长文', '每篇都有中英两个版本']
       ],
       commentary: '补一句：面了 100+ 家之后，他的结论是——面试不是考试，是双向选择。',
       thoughtWork: '▸ fetch: selected work → 6 artifacts',
@@ -106,16 +101,16 @@ const copy = isEn
       thoughtWriting: '▸ list: writing → essays & notes',
       writingArtifact: 'artifact · index',
       quote: ['知识是地基，', 'context', ' 才是护城河。'],
-      quoteCite: '—— Joye · 分享会 Ep.2',
+      quoteCite: '—— Judy',
       handoffLines: [
         '故事讲完了。',
         '他还说过：「与其追每个名词，不如建一个能持续跑下去的系统。」——我同意。',
         '会话交给你：'
       ],
-      inputPlaceholder: "试试 'blog'、'notes'、'about'、'contact' 或 'github' …",
+      inputPlaceholder: "试试 'blog'、'notes'、'about' 或 'github' …",
       inputAria: '输入命令跳转',
       credit: 'designed & built with kimi k3',
-      copyright: '© 2026 Joye · 墨尔本',
+      copyright: '© 2026 Judy · Nanjing',
       backTop: '↑ 回到顶部重播会话',
       cue: 'scroll — 会话继续'
     }
@@ -124,8 +119,7 @@ const statsData = [
   { value: 100, suffix: '+' },
   { value: 4, suffix: '' },
   { value: ownStars, suffix: '★' },
-  { value: postCount, suffix: '' },
-  { value: talkCount, suffix: '' }
+  { value: postCount, suffix: '' }
 ].map((stat, index) => ({ ...stat, label: copy.stats[index][0], sub: copy.stats[index][1] }))
 
 type Product = {
@@ -231,18 +225,16 @@ const chips = [
   { label: '/blog', href: `${prefix}/blog` },
   { label: '/notes', href: `${prefix}/notes` },
   { label: '/about', href: `${prefix}/about` },
-  { label: '/contact', href: `${prefix}/contact` },
-  { label: '/github', href: 'https://github.com/joyehuang' }
+  { label: '/github', href: 'https://github.com/554454545' }
 ]
 ---
 
 <v3-home class='session' id='top' data-locale={locale}>
   <header class='session__bar'>
     <span class='session__id'><i aria-hidden='true'></i>{copy.session}</span>
-    <span class='session__url' aria-hidden='true'>joyehuang.me/v3</span>
+    <span class='session__url' aria-hidden='true'>blog.bunnyjudy.dev/v3</span>
     <nav class='session__links' aria-label={isEn ? 'Quick links' : '快捷链接'}>
       <a href={`${prefix}/blog`}>{copy.blog}</a>
-      <a href={`${prefix}/contact`}>{copy.contact}</a>
       <a class='session__lang' href={isEn ? '/v3' : '/en/v3'}>{isEn ? '中文' : 'EN'}</a>
     </nav>
   </header>
@@ -270,14 +262,14 @@ const chips = [
     <section class='msg msg--agent' data-block='identity' id='s-identity'>
       <p class='thought' data-thought>{copy.thoughtContext}</p>
       <div class='answer'>
-        <h1 class='answer__word' data-answer-line>Joye<span class='answer__dot'>.</span></h1>
+        <h1 class='answer__word' data-answer-line>Judy<span class='answer__dot'>.</span></h1>
         <p class='answer__role' data-answer-line>{copy.role}</p>
         <p class='answer__bio' data-answer-line>{copy.bio}</p>
         <p class='answer__motto' data-answer-line>{copy.motto}</p>
       </div>
       <figure class='artifact artifact--photo' data-photo>
         <div class='artifact__media'>
-          <Image src={avatar} alt={isEn ? 'Portrait of Joye' : 'Joye 的头像'} loading='eager' />
+          <Image src={avatar} alt={isEn ? 'Portrait of Judy' : 'Judy 的头像'} loading='eager' />
         </div>
         <figcaption>
           <span class='artifact__head'>
